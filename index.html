@@ -39,29 +39,6 @@ body{background:var(--cream);color:var(--dark);font-family:'Jost',sans-serif;min
 .phase-bar{height:3px;background:#EEE5D4;border-radius:2px;overflow:hidden;}
 .phase-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .5s;}
 
-/* TODAY CARD */
-.today-card{background:var(--white);border:1px solid #E8DEC8;border-radius:10px;overflow:hidden;margin-bottom:20px;box-shadow:0 2px 16px rgba(160,120,64,.08);}
-.today-hdr{background:var(--accent);padding:14px 22px;display:flex;justify-content:space-between;align-items:center;}
-.today-lbl{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.65);}
-.today-day{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--white);}
-.today-date{font-size:11px;color:rgba(255,255,255,.6);text-align:right;}
-.today-body{padding:22px;}
-
-/* CHECKIN */
-.checkin{background:var(--sandbg);border-radius:6px;padding:16px 18px;margin-bottom:18px;border-left:4px solid var(--accent);}
-.checkin-title{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px;}
-.checkin-q{font-family:'Playfair Display',serif;font-size:15px;color:var(--dark);margin-bottom:12px;line-height:1.4;}
-.checkin-btns{display:flex;gap:8px;flex-wrap:wrap;}
-.btn{padding:8px 18px;border-radius:4px;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:12px;font-weight:600;transition:all .2s;letter-spacing:.3px;}
-.btn-yes{background:var(--green);color:white;}.btn-yes:hover{background:#3A6B48;transform:translateY(-1px);}
-.btn-part{background:var(--accent);color:white;}.btn-part:hover{background:#8B6530;transform:translateY(-1px);}
-.btn-no{background:#D0C0A0;color:var(--dark);}.btn-no:hover{background:#C0B090;transform:translateY(-1px);}
-.checkin-res{margin-top:10px;padding:10px 14px;border-radius:4px;font-size:13px;font-weight:500;display:none;}
-.checkin-res.show{display:block;}
-.checkin-res.good{background:var(--greenbg);color:var(--green);border-left:3px solid var(--green);}
-.checkin-res.ok{background:#FFF8EC;color:#8B6530;border-left:3px solid var(--accent);}
-.checkin-res.bad{background:var(--redbg);color:var(--red);border-left:3px solid var(--red);}
-
 /* TASKS */
 .tasks-lbl{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:12px;}
 
@@ -69,7 +46,7 @@ body{background:var(--cream);color:var(--dark);font-family:'Jost',sans-serif;min
 .task-header{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;cursor:pointer;transition:background .15s;}
 .task-header:hover{background:var(--sandbg);}
 .task-item.done .task-header{background:var(--greenbg);}
-.task-cb{width:22px;height:22px;min-width:22px;border-radius:50%;border:2px solid #D4C4A0;display:flex;align-items:center;justify-content:center;margin-top:1px;transition:all .2s;background:white;[...]
+.task-cb{width:22px;height:22px;min-width:22px;border-radius:50%;border:2px solid #D4C4A0;display:flex;align-items:center;justify-content:center;margin-top:1px;transition:all .2s;background:white;}
 .task-item.done .task-cb{background:var(--green);border-color:var(--green);color:white;}
 .task-cb::after{content:'✓';font-size:14px;font-weight:700;opacity:0;}
 .task-item.done .task-cb::after{opacity:1;}
@@ -78,18 +55,18 @@ body{background:var(--cream);color:var(--dark);font-family:'Jost',sans-serif;min
 .task-text{font-size:14px;color:var(--light);line-height:1.4;}
 .task-text strong{color:var(--dark);}
 .task-tag{display:inline-block;background:var(--sandbg);border:1px solid #D4C4A0;border-radius:20px;padding:2px 8px;font-size:9px;color:var(--muted);margin-top:4px;font-weight:500;}
-.task-expand-btn{margin-left:auto;font-size:11px;color:var(--accent);font-weight:600;cursor:pointer;white-space:nowrap;padding:2px 8px;border:1px solid rgba(160,120,64,.3);border-radius:10px;flex-[...]
+.task-expand-btn{margin-left:auto;font-size:11px;color:var(--accent);font-weight:600;cursor:pointer;white-space:nowrap;padding:2px 8px;border:1px solid rgba(160,120,64,.3);border-radius:10px;}
 
 /* DETAIL PANEL */
 .task-detail{display:none;border-top:1px solid #EEE5D4;padding:16px 18px;background:#FDFAF6;}
 .task-detail.open{display:block;}
-.detail-why{background:var(--sandbg);border-left:3px solid var(--accent2);border-radius:0 4px 4px 0;padding:10px 14px;margin-bottom:14px;font-size:13px;color:var(--light);line-height:1.6;font-style:it[...]
+.detail-why{background:var(--sandbg);border-left:3px solid var(--accent2);border-radius:0 4px 4px 0;padding:10px 14px;margin-bottom:14px;font-size:13px;color:var(--light);line-height:1.6;font-style:italic;}
 .detail-why strong{color:var(--brown);font-style:normal;}
 .steps-title{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px;}
 .step{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;padding:10px 12px;border-radius:6px;background:white;border:1px solid #EEE5D4;cursor:pointer;transition:all .15s;}
 .step:hover{border-color:var(--accent2);background:var(--sandbg);}
 .step.done{background:var(--greenbg);border-color:#C8DFC8;opacity:.7;}
-.step-cb{width:18px;height:18px;min-width:18px;border-radius:4px;border:2px solid #D4C4A0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin[...]
+.step-cb{width:18px;height:18px;min-width:18px;border-radius:4px;border:2px solid #D4C4A0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:2px;}
 .step.done .step-cb{background:var(--green);border-color:var(--green);color:white;}
 .step-cb::after{content:'✓';opacity:0;font-size:12px;}
 .step.done .step-cb::after{opacity:1;}
@@ -99,7 +76,7 @@ body{background:var(--cream);color:var(--dark);font-family:'Jost',sans-serif;min
 .step-text strong{color:var(--dark);}
 .step-tip{font-size:11px;color:var(--muted);margin-top:4px;font-style:italic;line-height:1.4;}
 
-.save-btn{width:100%;margin-top:14px;padding:12px;background:var(--dark);color:var(--cream);border:none;border-radius:6px;font-family:'Jost',sans-serif;font-size:13px;font-weight:600;letter-spaci[...]
+.save-btn{width:100%;margin-top:14px;padding:12px;background:var(--dark);color:var(--cream);border:none;border-radius:6px;font-family:'Jost',sans-serif;font-size:13px;font-weight:600;letter-spacing:.5px;cursor:pointer;}
 .save-btn:hover{background:var(--brown);}
 .save-ok{display:none;text-align:center;margin-top:8px;font-size:12px;color:var(--green);font-weight:500;}
 
@@ -115,7 +92,7 @@ body{background:var(--cream);color:var(--dark);font-family:'Jost',sans-serif;min
 .week-sec{margin-bottom:18px;}
 .week-lbl{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);font-weight:600;padding:6px 0;border-bottom:1px solid #EEE5D4;margin-bottom:10px;}
 .plan-row{display:grid;grid-template-columns:70px 1fr;gap:10px;margin-bottom:7px;align-items:start;}
-.plan-day{background:var(--sandbg);border:1px solid #D4C4A0;border-radius:4px;padding:4px 6px;font-size:10px;font-weight:600;color:var(--brown);text-align:center;cursor:pointer;transition:all .2s[...]
+.plan-day{background:var(--sandbg);border:1px solid #D4C4A0;border-radius:4px;padding:4px 6px;font-size:10px;font-weight:600;color:var(--brown);text-align:center;cursor:pointer;transition:all .2s;}
 .plan-day:hover{border-color:var(--accent);background:#E8DFC8;}
 .plan-day.clickable{cursor:pointer;}
 
@@ -132,22 +109,15 @@ body{background:var(--cream);color:var(--dark);font-family:'Jost',sans-serif;min
 .day-modal.open{display:flex;align-items:flex-start;justify-content:center;padding-top:40px;}
 .day-modal-content{background:white;border-radius:10px;max-width:700px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 10px 40px rgba(0,0,0,.2);}
 .day-modal-hdr{background:var(--accent);color:white;padding:20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10;}
+.day-modal-hdr.saturday{background:linear-gradient(135deg,#3A6A2A,#5A9A3A);}
+.day-modal-hdr.sunday{background:linear-gradient(135deg,#8A3030,#B05040);}
 .day-modal-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;}
 .day-modal-close{font-size:28px;cursor:pointer;background:none;border:none;color:white;padding:0;width:32px;height:32px;display:flex;align-items:center;justify-content:center;}
 .day-modal-close:hover{opacity:.8;}
 .day-modal-body{padding:24px;}
 .day-focus{font-size:14px;font-weight:600;color:var(--accent);margin-bottom:16px;text-transform:uppercase;letter-spacing:1px;}
 
-/* WEEKDAY COLORS */
-.today-hdr.weekend{background:linear-gradient(135deg,#6A5030,#9A7040);}
-.today-hdr.saturday{background:linear-gradient(135deg,#3A6A2A,#5A9A3A);}
-.today-hdr.sunday{background:linear-gradient(135deg,#8A3030,#B05040);}
-.today-hdr.holiday{background:linear-gradient(135deg,#6030A0,#8050C0);}
-.weekday-badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-top:5px;}
-.weekday-badge.normal{background:rgba(255,255,255,.2);color:rgba(255,255,255,.9);}
-.weekday-badge.saturday{background:#E0F5C8;color:#2A5A10;}
-.weekday-badge.sunday{background:#FFE0D8;color:#902010;}
-.weekday-badge.holiday{background:#EED8FF;color:#501870;}
+#setupBanner{background:#1E1810;color:#F0EAE0;padding:16px 24px;font-family:Jost,sans-serif;font-size:13px;border-bottom:3px solid #A07840;position:relative;z-index:100;}
 
 @media(max-width:600px){
   .stats{grid-template-columns:repeat(2,1fr);}
@@ -162,7 +132,7 @@ body{background:var(--cream);color:var(--dark);font-family:'Jost',sans-serif;min
 </head>
 <body>
 
-<div id="setupBanner" style="display:none;background:#1E1810;color:#F0EAE0;padding:16px 24px;font-family:Jost,sans-serif;font-size:13px;border-bottom:3px solid #A07840;position:relative;z-index:1[...]
+<div id="setupBanner" style="display:none;">
   <strong style="color:#C8965A;">⚠ Supabase noch nicht eingerichtet</strong> – 
   Die App läuft lokal ohne Cloud-Sync. Folge der Anleitung in der README.md um Supabase zu verbinden.
   <span style="color:#8A7A60;font-size:11px;display:block;margin-top:4px;">Daten werden nur in diesem Browser gespeichert bis Supabase konfiguriert ist.</span>
@@ -224,7 +194,7 @@ body{background:var(--cream);color:var(--dark);font-family:'Jost',sans-serif;min
 <!-- DAY DETAIL MODAL -->
 <div class="day-modal" id="dayModal">
   <div class="day-modal-content">
-    <div class="day-modal-hdr">
+    <div class="day-modal-hdr" id="dayModalHdr">
       <div class="day-modal-title" id="dayModalTitle">Tag 1</div>
       <button class="day-modal-close" onclick="closeDayModal()">×</button>
     </div>
@@ -270,7 +240,7 @@ async function loginAnonymous() {
       if (session) {
         _userId = session.user.id;
         await loadState();
-        renderPlan();
+        renderUI();
         return;
       }
     }
@@ -279,10 +249,10 @@ async function loginAnonymous() {
     _userId = data.user.id;
     localStorage.setItem('sorin_uid', _userId);
     await loadState();
-    renderPlan();
+    renderUI();
   } catch(e) {
     console.log('Auth error:', e);
-    renderPlan();
+    renderUI();
   }
 }
 
@@ -368,7 +338,7 @@ tasks:[
      {t:'3 Kategorien erstellen: A (gut), B (mittelmäßig), C (locker)', tip:'A-Kontakte: persönliche Nachrichten.'},
      {t:'10-15 A-Kontakte anschreiben', tip:'Mit persönlichem Bezug.'},
      {t:'Antworten zeitnah beantworten', tip:'Jede Antwort ist ein warmer Lead.'}
-   ]}
+    ]}
 ]}
 ];
 
@@ -387,6 +357,35 @@ for (var i = 3; i <= 90; i++) {
       steps: [{t: 'Aufgabe 1', tip: 'Beschreibung'}, {t: 'Aufgabe 2', tip: 'Beschreibung'}]
     }]
   });
+}
+
+function updateStats() {
+  var currentDay = getDay();
+  var daysLeft = Math.max(0, 90 - currentDay + 1);
+  
+  document.getElementById('sDayNum').textContent = currentDay;
+  document.getElementById('sLeft').textContent = daysLeft;
+  
+  var pct = Math.round((currentDay / 90) * 100);
+  document.getElementById('gBar').style.width = pct + '%';
+  document.getElementById('gText').textContent = 'Tag ' + currentDay + ' von 90';
+  
+  // Update phase bars
+  updatePhaseProgress();
+}
+
+function updatePhaseProgress() {
+  var currentDay = getDay();
+  
+  var p1End = 30, p2End = 60, p3End = 90;
+  
+  var pb1 = Math.min(100, Math.round((currentDay / p1End) * 100));
+  var pb2 = currentDay > p1End ? Math.min(100, Math.round(((currentDay - p1End) / (p2End - p1End)) * 100)) : 0;
+  var pb3 = currentDay > p2End ? Math.min(100, Math.round(((currentDay - p2End) / (p3End - p2End)) * 100)) : 0;
+  
+  document.getElementById('pb1').style.width = pb1 + '%';
+  document.getElementById('pb2').style.width = pb2 + '%';
+  document.getElementById('pb3').style.width = pb3 + '%';
 }
 
 function renderPlan() {
@@ -418,6 +417,11 @@ function renderPlan() {
   body.innerHTML = html;
 }
 
+function renderUI() {
+  updateStats();
+  renderPlan();
+}
+
 function togglePlan() {
   var body = document.getElementById('planBody');
   var icon = document.getElementById('planIcon');
@@ -430,8 +434,18 @@ function openDayModal(dayNum) {
   if (!day) return;
   
   var modal = document.getElementById('dayModal');
+  var hdr = document.getElementById('dayModalHdr');
   var title = document.getElementById('dayModalTitle');
   var body = document.getElementById('dayModalBody');
+  
+  // Update header styling for weekends
+  var dayOfWeek = getDayOfWeek(dayNum);
+  hdr.className = 'day-modal-hdr';
+  if (dayOfWeek === 6) {
+    hdr.classList.add('saturday');
+  } else if (dayOfWeek === 0) {
+    hdr.classList.add('sunday');
+  }
   
   title.textContent = 'Tag ' + dayNum + ' - ' + day.focus;
   
