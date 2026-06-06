@@ -212,18 +212,28 @@ var _sb = null;
 var _userId = null;
 var _state = {};
 var START = new Date('2026-06-05');
+var _useLocalStorage = false;
 
 function initSupabase() {
+  console.log('Initializing Supabase...');
   if (SUPABASE_URL === 'YOUR_SUPABASE_URL') {
+    console.log('Supabase URL not configured');
     showSetupBanner();
+    _useLocalStorage = true;
+    loadLocalState();
+    renderUI();
     return;
   }
   try {
     _sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    console.log('Supabase client created successfully');
     loginAnonymous();
   } catch(e) {
-    console.log('Supabase init error:', e);
+    console.error('Supabase init error:', e);
     showSetupBanner();
+    _useLocalStorage = true;
+    loadLocalState();
+    renderUI();
   }
 }
 
@@ -239,6 +249,7 @@ async function loginAnonymous() {
       var { data: { session } } = await _sb.auth.getSession();
       if (session) {
         _userId = session.user.id;
+        console.log('User session restored:', _userId);
         await loadState();
         renderUI();
         return;
@@ -247,11 +258,15 @@ async function loginAnonymous() {
     var { data, error } = await _sb.auth.signInAnonymously();
     if (error) throw error;
     _userId = data.user.id;
+    console.log('Anonymous user signed in:', _userId);
     localStorage.setItem('sorin_uid', _userId);
     await loadState();
     renderUI();
   } catch(e) {
-    console.log('Auth error:', e);
+    console.error('Auth error:', e);
+    showSetupBanner();
+    _useLocalStorage = true;
+    loadLocalState();
     renderUI();
   }
 }
@@ -266,25 +281,48 @@ async function loadState() {
       .single();
     if (data && data.state_json) {
       _state = JSON.parse(data.state_json);
+      console.log('State loaded from Supabase:', Object.keys(_state).length, 'items');
     }
   } catch(e) {
-    console.log('Load error:', e);
+    console.warn('Load state error (will use localStorage fallback):', e.message);
+    loadLocalState();
+  }
+}
+
+function loadLocalState() {
+  try {
+    var stored = localStorage.getItem('sorin_state_json');
+    if (stored) {
+      _state = JSON.parse(stored);
+      console.log('State loaded from localStorage:', Object.keys(_state).length, 'items');
+    }
+  } catch(e) {
+    console.error('Load localStorage error:', e);
   }
 }
 
 var _saveTimer = null;
 async function persistState() {
-  if (!_sb || !_userId) return;
   clearTimeout(_saveTimer);
   _saveTimer = setTimeout(async function() {
     try {
-      await _sb.from('sorin_state').upsert({
-        user_id: _userId,
-        state_json: JSON.stringify(_state),
-        updated_at: new Date().toISOString()
-      }, { onConflict: 'user_id' });
+      var stateStr = JSON.stringify(_state);
+      
+      // Always save to localStorage as fallback
+      localStorage.setItem('sorin_state_json', stateStr);
+      console.log('State saved to localStorage');
+      
+      // Try to save to Supabase if available
+      if (_sb && _userId) {
+        await _sb.from('sorin_state').upsert({
+          user_id: _userId,
+          state_json: stateStr,
+          updated_at: new Date().toISOString()
+        }, { onConflict: 'user_id' });
+        console.log('State saved to Supabase');
+      }
     } catch(e) {
-      console.log('Save error:', e);
+      console.error('Save error:', e);
     }
   }, 800);
 }
