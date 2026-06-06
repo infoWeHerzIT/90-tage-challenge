@@ -69,14 +69,16 @@ body{background:var(--cream);color:var(--dark);font-family:'Jost',sans-serif;min
 .task-header{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;cursor:pointer;transition:background .15s;}
 .task-header:hover{background:var(--sandbg);}
 .task-item.done .task-header{background:var(--greenbg);}
-.task-cb{width:22px;height:22px;min-width:22px;border-radius:50%;border:2px solid #D4C4A0;display:flex;align-items:center;justify-content:center;margin-top:1px;transition:all .2s;background:white;cursor:pointer;flex-shrink:0;}
-.task-item.done .task-cb{background:var(--green);border-color:var(--green);}
+.task-cb{width:22px;height:22px;min-width:22px;border-radius:50%;border:2px solid #D4C4A0;display:flex;align-items:center;justify-content:center;margin-top:1px;transition:all .2s;background:white;cursor:pointer;}
+.task-item.done .task-cb{background:var(--green);border-color:var(--green);color:white;}
+.task-cb::after{content:'✓';font-size:14px;font-weight:700;opacity:0;}
+.task-item.done .task-cb::after{opacity:1;}
 .task-meta{}
 .task-time{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:3px;}
 .task-text{font-size:14px;color:var(--light);line-height:1.4;}
 .task-text strong{color:var(--dark);}
 .task-tag{display:inline-block;background:var(--sandbg);border:1px solid #D4C4A0;border-radius:20px;padding:2px 8px;font-size:9px;color:var(--muted);margin-top:4px;font-weight:500;}
-.task-expand-btn{margin-left:auto;font-size:11px;color:var(--accent);font-weight:600;cursor:pointer;white-space:nowrap;padding:2px 8px;border:1px solid rgba(160,120,64,.3);border-radius:10px;flex-shrink:0;align-self:flex-start;margin-top:2px;}
+.task-expand-btn{margin-left:auto;font-size:11px;color:var(--accent);font-weight:600;cursor:pointer;white-space:nowrap;padding:2px 8px;border:1px solid rgba(160,120,64,.3);border-radius:10px;flex-shrink:0;}
 
 /* DETAIL PANEL */
 .task-detail{display:none;border-top:1px solid #EEE5D4;padding:16px 18px;background:#FDFAF6;}
@@ -87,15 +89,17 @@ body{background:var(--cream);color:var(--dark);font-family:'Jost',sans-serif;min
 .step{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;padding:10px 12px;border-radius:6px;background:white;border:1px solid #EEE5D4;cursor:pointer;transition:all .15s;}
 .step:hover{border-color:var(--accent2);background:var(--sandbg);}
 .step.done{background:var(--greenbg);border-color:#C8DFC8;opacity:.7;}
-.step-cb{width:18px;height:18px;min-width:18px;border-radius:4px;border:2px solid #D4C4A0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px;transition:all .2s;background:white;}
+.step-cb{width:18px;height:18px;min-width:18px;border-radius:4px;border:2px solid #D4C4A0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px;cursor:pointer;background:white;}
 .step.done .step-cb{background:var(--green);border-color:var(--green);color:white;}
+.step-cb::after{content:'✓';opacity:0;font-size:12px;}
+.step.done .step-cb::after{opacity:1;}
 .step-content{}
 .step-num{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:2px;}
 .step-text{font-size:13px;color:var(--light);line-height:1.5;}
 .step-text strong{color:var(--dark);}
 .step-tip{font-size:11px;color:var(--muted);margin-top:4px;font-style:italic;line-height:1.4;}
 
-.save-btn{width:100%;margin-top:14px;padding:12px;background:var(--dark);color:var(--cream);border:none;border-radius:6px;font-family:'Jost',sans-serif;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .2s;}
+.save-btn{width:100%;margin-top:14px;padding:12px;background:var(--dark);color:var(--cream);border:none;border-radius:6px;font-family:'Jost',sans-serif;font-size:13px;font-weight:600;letter-spacing:1px;cursor:pointer;transition:all .2s;}
 .save-btn:hover{background:var(--brown);}
 .save-ok{display:none;text-align:center;margin-top:8px;font-size:12px;color:var(--green);font-weight:500;}
 
@@ -111,9 +115,21 @@ body{background:var(--cream);color:var(--dark);font-family:'Jost',sans-serif;min
 .week-sec{margin-bottom:18px;}
 .week-lbl{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);font-weight:600;padding:6px 0;border-bottom:1px solid #EEE5D4;margin-bottom:10px;}
 .plan-row{display:grid;grid-template-columns:70px 1fr;gap:10px;margin-bottom:7px;align-items:start;}
-.plan-day{background:var(--sandbg);border:1px solid #D4C4A0;border-radius:4px;padding:4px 6px;font-size:10px;font-weight:600;color:var(--brown);text-align:center;}
+.plan-day{background:var(--sandbg);border:1px solid #D4C4A0;border-radius:4px;padding:4px 6px;font-size:10px;font-weight:600;color:var(--brown);text-align:center;cursor:pointer;transition:all .2s;}
+.plan-day:hover{border-color:var(--accent);background:#E8DFC8;}
+.plan-day.clickable{cursor:pointer;}
 .plan-task{font-size:12px;color:var(--light);line-height:1.5;padding-top:3px;}
 
+/* DAY DETAIL MODAL */
+.day-modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:1000;overflow-y:auto;padding:20px;}
+.day-modal.open{display:flex;align-items:flex-start;justify-content:center;padding-top:40px;}
+.day-modal-content{background:white;border-radius:10px;max-width:700px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 10px 40px rgba(0,0,0,.2);}
+.day-modal-hdr{background:var(--accent);color:white;padding:20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10;}
+.day-modal-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;}
+.day-modal-close{font-size:28px;cursor:pointer;background:none;border:none;color:white;padding:0;width:32px;height:32px;display:flex;align-items:center;justify-content:center;}
+.day-modal-close:hover{opacity:.8;}
+.day-modal-body{padding:24px;}
+.day-focus{font-size:14px;font-weight:600;color:var(--accent);margin-bottom:16px;text-transform:uppercase;letter-spacing:1px;}
 
 /* WEEKDAY COLORS */
 .today-hdr.weekend{background:linear-gradient(135deg,#6A5030,#9A7040);}
@@ -126,54 +142,13 @@ body{background:var(--cream);color:var(--dark);font-family:'Jost',sans-serif;min
 .weekday-badge.sunday{background:#FFE0D8;color:#902010;}
 .weekday-badge.holiday{background:#EED8FF;color:#501870;}
 
-/* FITNESS BLOCK */
-.fitness-block{border:2px solid #4A7A2A;border-radius:8px;overflow:hidden;margin-bottom:16px;}
-.fitness-hdr{background:linear-gradient(135deg,#3A6A20,#6A9A40);padding:12px 18px;display:flex;align-items:center;gap:10px;}
-.fitness-icon{font-size:22px;}
-.fitness-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:white;}
-.fitness-sub{font-size:11px;color:rgba(255,255,255,.75);margin-top:2px;}
-.fitness-body{padding:16px 18px;background:#F2F8EC;}
-.fitness-time-lbl{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#2A5A10;margin-bottom:10px;}
-.fitness-step{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;background:white;border:1px solid #C0DCA8;border-radius:6px;cursor:pointer;transition:all .15s;margin-bottom:6px;}
-.fitness-step:hover{border-color:#6A9A40;background:#EDFAE0;}
-.fitness-step.done{background:#E4F4DC;border-color:#6A9A40;opacity:.7;}
-.fitness-step-cb{width:18px;height:18px;min-width:18px;border-radius:50%;border:2px solid #A8CA88;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;background:white;flex-shrink:0;margin-top:1px;transition:all .2s;}
-.fitness-step.done .fitness-step-cb{background:#3A6A20;border-color:#3A6A20;color:white;}
-.fitness-text{font-size:13px;color:#1A3A08;line-height:1.45;}
-.fitness-tip-text{font-size:11px;color:#5A8A30;font-style:italic;margin-top:3px;}
-
-/* IDEA BOX */
-.idea-box{border:1px solid #D4C4A0;border-radius:8px;overflow:hidden;margin-top:16px;margin-bottom:4px;}
-.idea-hdr{background:linear-gradient(135deg,#1E1810,#3A2810);padding:12px 18px;display:flex;align-items:center;gap:10px;}
-.idea-hdr-icon{font-size:18px;}
-.idea-hdr-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#F0EAE0;}
-.idea-hdr-sub{font-size:11px;color:rgba(240,234,224,.55);margin-top:2px;}
-.idea-body{padding:16px 18px;background:white;}
-.idea-textarea{width:100%;border:1px solid #D4C4A0;border-radius:6px;padding:12px 14px;font-family:'Jost',sans-serif;font-size:13px;color:#1E1810;background:#FAF7F2;resize:vertical;min-height:80px;outline:none;transition:border .2s;line-height:1.5;}
-.idea-textarea:focus{border-color:#A07840;}
-.idea-textarea::placeholder{color:#8A7A60;font-style:italic;}
-.idea-row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;}
-.idea-save-btn{padding:9px 18px;background:#1E1810;color:#F0EAE0;border:none;border-radius:5px;font-family:'Jost',sans-serif;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .2s;}
-.idea-save-btn:hover{background:#3A2810;}
-.idea-claude-btn{padding:9px 18px;background:linear-gradient(135deg,#A07840,#C8965A);color:white;border:none;border-radius:5px;font-family:'Jost',sans-serif;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px;}
-.idea-claude-btn:hover{opacity:.9;transform:translateY(-1px);}
-.idea-claude-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;}
-.idea-spinner{display:none;width:12px;height:12px;border:2px solid rgba(255,255,255,.3);border-top-color:white;border-radius:50%;animation:spin .7s linear infinite;}
-@keyframes spin{to{transform:rotate(360deg);}}
-.idea-result{margin-top:14px;border:1px solid #C8965A;border-radius:6px;background:#F5EDD8;padding:14px 16px;display:none;}
-.idea-result.show{display:block;}
-.idea-result-lbl{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#A07840;font-weight:600;margin-bottom:8px;}
-.idea-result-text{font-size:13px;color:#4A3C28;line-height:1.7;white-space:pre-wrap;}
-.idea-notes-list{margin-top:14px;}
-.idea-note{background:#F5EDD8;border-left:3px solid #C8965A;padding:8px 12px;border-radius:0 4px 4px 0;margin-bottom:6px;}
-.idea-note-date{font-size:10px;color:#8A7A60;margin-bottom:3px;}
-.idea-note-text{font-size:12px;color:#4A3C28;line-height:1.4;}
-
 @media(max-width:600px){
   .stats{grid-template-columns:repeat(2,1fr);}
   .phases{grid-template-columns:1fr;}
   .header-inner{flex-direction:column;align-items:flex-start;}
   .prog-wrap{width:100%;}
+  .day-modal{padding:10px;}
+  .day-modal-content{max-width:100%;}
 }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -181,8 +156,8 @@ body{background:var(--cream);color:var(--dark);font-family:'Jost',sans-serif;min
 <body>
 
 <div id="setupBanner" style="display:none;background:#1E1810;color:#F0EAE0;padding:16px 24px;font-family:Jost,sans-serif;font-size:13px;border-bottom:3px solid #A07840;position:relative;z-index:100;">
-  <strong style="color:#C8965A;">&#9888; Supabase noch nicht eingerichtet</strong> &ndash; 
-  Die App laeuft lokal ohne Cloud-Sync. Folge der Anleitung in der README.md um Supabase zu verbinden.
+  <strong style="color:#C8965A;">⚠ Supabase noch nicht eingerichtet</strong> – 
+  Die App läuft lokal ohne Cloud-Sync. Folge der Anleitung in der README.md um Supabase zu verbinden.
   <span style="color:#8A7A60;font-size:11px;display:block;margin-top:4px;">Daten werden nur in diesem Browser gespeichert bis Supabase konfiguriert ist.</span>
 </div>
 
@@ -230,73 +205,29 @@ body{background:var(--cream);color:var(--dark);font-family:'Jost',sans-serif;min
     </div>
   </div>
 
-  <div class="today-card">
-    <div class="today-hdr">
-      <div>
-        <div class="today-lbl">Heute</div>
-        <div class="today-day" id="todayTitle">Tag 1</div>
-      </div>
-      <div class="today-date" id="todayDate"></div>
-    </div>
-    <div class="today-body">
-      <div class="checkin" id="checkinBox">
-        <div class="checkin-title">Tages Check-in</div>
-        <div class="checkin-q" id="checkinQ">Guten Morgen Sorin! Heute startest du deinen 90-Tage-Plan. Bist du bereit?</div>
-        <div class="checkin-btns" id="checkinBtns">
-          <button class="btn btn-yes" onclick="checkin('yes')">Ja, ich bin dabei!</button>
-          <button class="btn btn-no" onclick="checkin('no')">Ich brauche Motivation</button>
-        </div>
-        <div class="checkin-res" id="checkinRes"></div>
-      </div>
-      <div class="tasks-lbl">Deine detaillierten Aufgaben fur heute</div>
-      <div id="taskList"></div>
-
-      <!-- FITNESS BLOCK (rendered by JS) -->
-      <div id="fitnessBlock"></div>
-
-      <!-- IDEA BOX -->
-      <div class="idea-box">
-        <div class="idea-hdr">
-          <div class="idea-hdr-icon">&#128161;</div>
-          <div>
-            <div class="idea-hdr-title">Deine Idee des Tages</div>
-            <div class="idea-hdr-sub">Schreibe eine Idee &ndash; Claude integriert sie in deinen Plan</div>
-          </div>
-        </div>
-        <div class="idea-body">
-          <textarea class="idea-textarea" id="ideaInput" placeholder="z.B. Ich moechte einen Podcast starten... oder Ich habe eine neue Zielgruppe entdeckt... oder Ich will morgens meditieren..."></textarea>
-          <div class="idea-row">
-            <button class="idea-save-btn" onclick="saveIdea()">&#128190; Notiz speichern</button>
-            <button class="idea-claude-btn" id="claudeBtn" onclick="askClaude()">
-              <span class="idea-spinner" id="ideaSpinner"></span>
-              <span id="claudeBtnText">&#10024; Mit Claude in Plan integrieren</span>
-            </button>
-          </div>
-          <div class="idea-result" id="ideaResult">
-            <div class="idea-result-lbl">Claude&apos;s Empfehlung</div>
-            <div class="idea-result-text" id="ideaResultText"></div>
-          </div>
-          <div class="idea-notes-list" id="ideaNotesList"></div>
-        </div>
-      </div>
-      <button class="save-btn" onclick="saveDay()">Tag abschliessen &amp; speichern</button>
-      <div class="save-ok" id="saveOk">Gespeichert! Gut gemacht Sorin!</div>
-    </div>
-  </div>
-
   <div class="plan-toggle">
     <div class="plan-hdr" onclick="togglePlan()">
-      <div class="plan-hdr-title">Vollstandiger 90-Tage-Plan</div>
-      <div class="plan-icon" id="planIcon">&#9660;</div>
+      <div class="plan-hdr-title">Vollständiger 90-Tage-Plan</div>
+      <div class="plan-icon" id="planIcon">▼</div>
     </div>
     <div class="plan-body" id="planBody"></div>
+  </div>
+</div>
+
+<!-- DAY DETAIL MODAL -->
+<div class="day-modal" id="dayModal">
+  <div class="day-modal-content">
+    <div class="day-modal-hdr">
+      <div class="day-modal-title" id="dayModalTitle">Tag 1</div>
+      <button class="day-modal-close" onclick="closeDayModal()">×</button>
+    </div>
+    <div class="day-modal-body" id="dayModalBody"></div>
   </div>
 </div>
 
 <script>
 // ═══════════════════════════════════════
 // SUPABASE CONFIG
-// Replace these with your own values from supabase.com
 // ═══════════════════════════════════════
 var SUPABASE_URL = 'https://fkxqdrbdynnswxqrpbks.supabase.co';
 var SUPABASE_ANON_KEY = 'keysb_publishable_b2FGMpROzhSBPy7XuwmaEw_mfdeGggK';
@@ -328,28 +259,23 @@ async function loginAnonymous() {
   try {
     var stored = localStorage.getItem('sorin_uid');
     if (stored) {
-      // Try to restore session
       var { data: { session } } = await _sb.auth.getSession();
       if (session) {
         _userId = session.user.id;
         await loadState();
-        render();
-        renderIdeas(getCurrDay());
+        renderPlan();
         return;
       }
     }
-    // Sign in anonymously
     var { data, error } = await _sb.auth.signInAnonymously();
     if (error) throw error;
     _userId = data.user.id;
     localStorage.setItem('sorin_uid', _userId);
     await loadState();
-    render();
-    renderIdeas(getCurrDay());
+    renderPlan();
   } catch(e) {
     console.log('Auth error:', e);
-    render();
-    renderIdeas(getCurrDay());
+    renderPlan();
   }
 }
 
@@ -392,1110 +318,174 @@ function getDay() {
 }
 
 // ═══════════════════════════════════════════════════
-// ALL 90 DAYS DATA
+// ALL 90 DAYS DATA (condensed)
 // ═══════════════════════════════════════════════════
 var DAYS = [
-
-// ─── TAG 1 ───
 {day:1, phase:1, focus:'Anmeldung & Social Setup',
 tasks:[
   {time:'06:00-06:30', text:'Seminar-Anmeldung erstellen', tag:'SEMINAR',
-   why:'Ohne Anmeldelink kannst du niemanden anmelden. Das ist der erste konkrete Schritt - ohne diesen Link kann dein Seminar nicht stattfinden. Jeder Post, jede Nachricht braucht diesen Link.',
+   why:'Ohne Anmeldelink kannst du niemanden anmelden.',
    steps:[
-     {t:'Gehe auf eventbrite.de und erstelle ein kostenloses Konto', tip:'Eventbrite ist kostenlos und professionell. Die Leute vertrauen dieser Plattform - das erhoht deine Conversion.'},
-     {t:'Klicke auf "Veranstaltung erstellen" und wahle "Personlich"', tip:'Personliche Events konvertieren 3x besser als Online-only bei lokalen Seminaren.'},
-     {t:'Titel eingeben: "Stressmanagement Tagesseminar - 20. Juni 2026"', tip:'Datum im Titel = sofortige Klarheit. Menschen sehen sofort ob sie Zeit haben.'},
-     {t:'Beschreibung schreiben: Was lernst du, was nimmst du mit, fur wen ist es', tip:'Die Beschreibung beantwortet die Frage "Warum soll ich kommen?" - schreib 3 Bullet Points: Problem, Losung, Ergebnis.'},
-     {t:'Preis auf 59 Euro setzen (nicht 50-70, sondern genau 59)', tip:'59 Euro klingt psychologisch deutlich guenstiger als 60. Dieser kleine Trick erhoht deine Conversions messbar.'},
-     {t:'Max. Teilnehmerzahl: 20 einstellen', tip:'Knappheit schafft Dringlichkeit. "Nur 20 Platze" motiviert zur sofortigen Anmeldung.'},
-     {t:'Link kopieren und in einem Notizzettel speichern', tip:'Du brauchst diesen Link heute noch 10 Mal - habe ihn immer griffbereit.'}
+     {t:'Gehe auf eventbrite.de und erstelle ein kostenloses Konto', tip:'Eventbrite ist kostenlos und professionell.'},
+     {t:'Klicke auf "Veranstaltung erstellen" und wähle "Persönlich"', tip:'Persönliche Events konvertieren 3x besser.'},
+     {t:'Titel: "Stressmanagement Tagesseminar - 20. Juni 2026"', tip:'Datum im Titel = Klarheit.'},
+     {t:'Beschreibung schreiben', tip:'Beantworte: Was lernst du, was nimmst du mit?'}
    ]},
-  {time:'06:30-07:00', text:'Instagram Bio & Profil optimieren', tag:'SOCIAL MEDIA',
-   why:'Dein Instagram-Profil ist deine digitale Visitenkarte. Wenn jemand deinen Post sieht und auf dein Profil klickt, entscheidet er in 3 Sekunden ob er dir folgt oder nicht. Ein schwaches Profil verschwendet all deine Content-Arbeit.',
+  {time:'06:30-07:00', text:'Instagram Bio optimieren', tag:'SOCIAL MEDIA',
+   why:'Dein Profil ist deine digitale Visitenkarte.',
    steps:[
-     {t:'Profilfoto: Klares, professionelles Foto von dir - lachend, Blickkontakt', tip:'Menschen kaufen von Menschen. Ein warmes, echtes Foto baut sofort Vertrauen auf. Kein Logo, kein Cartoon.'},
-     {t:'Name: "Sorin Ratiu | NLP Coach & Stressmanagement"', tip:'Der Name-Bereich wird von Instagram indexiert - so findest du dich auch uber die Suche.'},
-     {t:'Bio schreiben (max 150 Zeichen): Ich helfe dir, Stress aufzuloesen und dein Leben neu zu gestalten | NLP Coach | Tagesseminar 20. Juni', tip:'Deine Bio muss in 3 Sekunden klar machen: Wer bist du, wem hilfst du, was ist der nachste Schritt.'},
-     {t:'Link in Bio: Deinen Eventbrite-Link einfugen', tip:'Das ist dein einziger klickbarer Link auf Instagram. Jeder Post wird auf diesen Link hinweisen.'},
-     {t:'Story-Highlights erstellen: "Seminar", "Coaching", "Uber mich"', tip:'Highlights sind wie ein Mini-Website auf deinem Profil. Neue Besucher sehen sofort was du anbietest.'}
+     {t:'Profilfoto: Klares, professionelles Foto von dir', tip:'Menschen kaufen von Menschen.'},
+     {t:'Name: "Sorin Ratiu | NLP Coach & Stressmanagement"', tip:'Wird von Instagram indexiert.'},
+     {t:'Bio schreiben mit Seminar-Link', tip:'Max 150 Zeichen, klar und einladend.'}
    ]},
-  {time:'07:00-07:30', text:'Ersten Seminar-Post veroffentlichen', tag:'CONTENT',
-   why:'Sichtbarkeit ist alles am Anfang. Der erste Post ist wie das Aufmachen deines Ladens. Er muss klar, einladend und mit einem klaren Call-to-Action sein. Ohne Posts - kein Publikum, kein Seminar.',
+  {time:'07:00-07:30', text:'Ersten Seminar-Post veröffentlichen', tag:'CONTENT',
+   why:'Sichtbarkeit am Anfang ist alles.',
    steps:[
-     {t:'Foto machen: Ein gutes Bild von dir - klar, hell, professionell (Fenster als Lichtquelle nutzen)', tip:'Naturliches Fensterlicht ist kostenlos und macht dich 10x besser aus als Kunstlicht. Stell dich ans Fenster, Kamera auf Augenhohe.'},
-     {t:'Caption schreiben nach diesem Template: Problem nennen / Losung anbieten / Social Proof / CTA', tip:'Instagram-Posts die eine Emotion ausloesen bekommen 3x mehr Interaktion. Fang mit einem starken ersten Satz an.'},
-     {t:'Post-Text: "Fuhlst du dich erschopft obwohl du alles gibst? Das Stressmanagement-Tagesseminar am 20. Juni zeigt dir wie du das auflosen kannst. Nur 20 Platze. Link in Bio."', tip:'Kurz, direkt, emotional. Kein Roman. Menschen scrollen schnell - dein erster Satz muss stoppen.'},
-     {t:'3-5 relevante Hashtags hinzufugen: #stressmanagement #nlpcoach #coaching #personlichkeitsentwicklung #stressfrei', tip:'Hashtags erweitern deine Reichweite uber deine Follower hinaus. Nutze eine Mischung aus grossen und kleinen Hashtags.'},
-     {t:'Gleichen Post auf Facebook veroffentlichen', tip:'Facebook hat eine andere, oft altere Zielgruppe - viele die Geld fur Seminare ausgeben sind 35-55 auf Facebook sehr aktiv.'},
-     {t:'Post auf LinkedIn mit angepasstem Text veroffentlichen (professioneller Ton)', tip:'LinkedIn-Publikum = Unternehmer, Manager, HR. Die konnen auch Firmen-Workshops buchen - das ist dein B2B-Kanal.'}
+     {t:'Gutes Foto machen von dir', tip:'Fenster als Lichtquelle nutzen.'},
+     {t:'Caption: Problem / Lösung / CTA', tip:'Fang mit einer Emotion an.'},
+     {t:'3-5 Hashtags hinzufügen', tip:'Nutze: #stressmanagement #nlpcoach #coaching'}
    ]}
 ]},
-
-// ─── TAG 2 ───
-{day:2, phase:1, focus:'WhatsApp & Netzwerk aktivieren',
+{day:2, phase:1, focus:'WhatsApp & Netzwerk',
 tasks:[
-  {time:'06:00-06:30', text:'WhatsApp-Nachricht an alle Kontakte senden', tag:'NETZWERK',
-   why:'Dein warmes Netzwerk ist GOLD. Menschen die dich kennen kaufen 7x wahrscheinlicher als Fremde. Die meisten Coaches vernachlassigen ihr bestehendes Netzwerk und suchen nach neuen Kunden - das ist ein Riesenfehler am Anfang.',
+  {time:'06:00-06:30', text:'WhatsApp an Kontakte senden', tag:'NETZWERK',
+   why:'Dein warmes Netzwerk ist GOLD.',
    steps:[
-     {t:'Kontaktliste durchgehen und 3 Kategorien erstellen: A=kennt mich gut, B=kennt mich ein bisschen, C=loser Kontakt', tip:'A-Kontakte bekommen personliche Nachrichten. B bekommen eine halbpersonliche. C bekommt eine allgemeine Einladung.'},
-     {t:'A-Kontakte (10-15 Personen): Personliche Nachricht schreiben: "Hey [Name], ich denke an dich! Ich mache am 20. Juni ein Stressmanagement-Seminar. Ich weiss du hattest mal Stress mit [Thema]. Ware das etwas fur dich?"', tip:'Personlichkeit schlagt Masse. Eine echte Nachricht an 15 Personen bringt mehr als eine Massenmail an 500.'},
-     {t:'B-Kontakte (20-30 Personen): Halbpersonliche Nachricht: "Hey [Name], lange nichts gehort! Ich mache am 20. Juni ein Tagesseminar zu Stressmanagement. Nur 59 Euro, 20 Platze. Interesse?"', tip:'Kurz und direkt. Menschen haben wenig Zeit - respektiere das.'},
-     {t:'C-Kontakte: Status-Nachricht in WhatsApp stellen mit Seminar-Info und Link', tip:'WhatsApp-Status wird von vielen gelesen aber ignoriert. Gut fur Awareness, nicht fur direkte Anmeldungen.'},
-     {t:'Antworten zeitnah beantworten - jede Antwort ist ein warmer Lead!', tip:'Reagiere innerhalb von 1 Stunde auf Antworten. Wer antwortet ist interessiert - das Gesprach jetzt fuhren, nicht morgen.'}
-   ]},
-  {time:'06:30-07:00', text:'In 5 Facebook-Gruppen posten', tag:'SOCIAL MEDIA',
-   why:'Facebook-Gruppen sind die aktivsten organischen Kanale 2026. Menschen in diesen Gruppen suchen aktiv nach Losungen. Dein Post dort erreicht genau die richtige Zielgruppe - kostenlos.',
-   steps:[
-     {t:'Suche auf Facebook nach: "Stressmanagement Deutschland", "NLP Coaching", "Persoenlichkeitsentwicklung", "Coaching Community", "Burnout Hilfe"', tip:'Such nach Gruppen mit 1.000-50.000 Mitgliedern. Grossere Gruppen = mehr Konkurrenz. Mittlere Gruppen sind ideal.'},
-     {t:'Prufe die Gruppenregeln - viele Gruppen erlauben keine Werbung. Lies die Regeln bevor du postest', tip:'Wenn du die Regeln brichst wirst du gesperrt. Lies erst, dann poste.'},
-     {t:'Schreibe einen Mehrwert-Post (kein reiner Werbepost): "3 Zeichen dass du dringend Stressmanagement brauchst: 1. Du schlaefst schlecht... 2. Du bist gereizt... 3. Du kannst nicht abschalten... Falls das auf dich zutrifft - ich habe am 20. Juni ein Seminar dazu."', tip:'Mehrwert first, Angebot second. Posts die nur verkaufen werden ignoriert. Posts die helfen und dann verkaufen funktionieren.'},
-     {t:'In jeder Gruppe einen etwas anderen Text verwenden - nicht Copy-Paste', tip:'Facebook erkennt identische Posts und zeigt sie weniger. Und Gruppenleiter sperren Spam-Poster.'},
-     {t:'Auf Kommentare in den Gruppen antworten - aktiv sein!', tip:'Engagement ist der Algorithmus-Schluessel. Wer antwortet bleibt sichtbar.'}
-   ]},
-  {time:'07:00-07:30', text:'Instagram Story: Countdown starten', tag:'CONTENT',
-   why:'Stories werden von 70% der Follower gesehen - viel mehr als normale Posts. Ein Countdown-Sticker schafft Dringlichkeit und erinnert Menschen automatisch. Das ist psychologischer Verkauf ohne zu verkaufen.',
-   steps:[
-     {t:'Oeffne Instagram Stories und mache ein einfaches Bild oder nimm ein kurzes Video von dir auf', tip:'10-15 Sekunden reichen. Sei authentisch, nicht perfekt. Echte Stories performen besser als produzierte.'},
-     {t:'Fuege den Countdown-Sticker hinzu: Datum 20. Juni, Name "Seminar-Countdown"', tip:'Der Countdown-Sticker sendet deinen Followern eine Benachrichtigung wenn er ablauft. Das ist kostenlose Erinnerung.'},
-     {t:'Text hinzufuegen: "Noch X Tage - nur noch Y Platze frei!"', tip:'Zahlen machen Dringlichkeit konkret. "Wenige Platze" ist abstrakt. "Noch 17 Platze" ist real.'},
-     {t:'Link-Sticker hinzufuegen mit deinem Eventbrite-Link', tip:'Seit 2021 kann jeder einen Link in Stories setzen - nutze das IMMER wenn du etwas bewirbst.'},
-     {t:'3-4 Stories hintereinander posten: Begruessung, Seminar-Info, Testimonial/Warum, CTA', tip:'Eine Story wird schnell weggeklickt. 3-4 hintereinander halten die Aufmerksamkeit und erzahlen eine Geschichte.'}
-   ]}
-]},
-
-// ─── TAG 3 ───
-{day:3, phase:1, focus:'Erster Reel + LinkedIn aufbauen',
-tasks:[
-  {time:'06:00-06:45', text:'Ersten Instagram Reel aufnehmen', tag:'CONTENT',
-   why:'Reels haben die groesste organische Reichweite auf Instagram 2026. Ein Reel kann 10-100x mehr Menschen erreichen als ein normaler Post. Das ist deine wichtigste Wachstums-Maschine. Ohne Reels wachst du kaum.',
-   steps:[
-     {t:'Thema: "3 Zeichen dass du Stressmanagement brauchst" - wahle ein konkretes, alltagsnahes Thema', tip:'Themen die Menschen direkt betreffen (Schlaf, Erschopfung, Reizbarkeit) stoppen den Scroll am starksten.'},
-     {t:'Script schreiben (30-60 Sekunden): Hook (erste 3 Sekunden) / 3 Punkte / CTA', tip:'Die ersten 3 Sekunden entscheiden alles. Fang mit einer Frage oder einer uberraschenden Aussage an: "Wenn du abends nicht abschalten kannst, liegt es nicht an dir - sondern an diesem einen Muster..."'},
-     {t:'Handy auf ein Stativ oder Stapel Bucher stellen - Kamera auf Augenhohe', tip:'Augenhohe wirkt professionell und verbindet. Kamera von unten macht dich klein. Kamera von oben macht dich uberheblicvh.'},
-     {t:'Nahe am Fenster filmen fur gutes naturliches Licht, Hintergrund aufraumen', tip:'Unordnung im Hintergrund lenkt ab. Ein leerer Wandhintergrund oder ein Bucherregal wirken professionell.'},
-     {t:'2-3 Takes aufnehmen - den besten auswhlen', tip:'Perfektionismus killt Produktivitat. 2-3 Takes reichen. Gut genug ist besser als nie fertig.'},
-     {t:'In CapCut (kostenlose App) schneiden: Anfang und Ende schneiden, Untertitel hinzufugen', tip:'80% der Reels werden ohne Ton angeschaut. Untertitel sind PFLICHT - ohne sie verlierst du die Halfte deiner Zielgruppe.'},
-     {t:'Reel auf Instagram hochladen mit Beschreibung und 5 Hashtags', tip:'Poste Reels immer zwischen 7-9 Uhr oder 17-20 Uhr - da sind die meisten Leute online.'}
-   ]},
-  {time:'06:45-07:30', text:'LinkedIn-Profil optimieren und ersten Artikel schreiben', tag:'LINKEDIN',
-   why:'LinkedIn ist dein B2B-Kanal. Hier sind Unternehmer, Fuhrungskrafte und HR-Manager - also Menschen die Firmen-Workshops kaufen (1.500-3.500 Euro pro Workshop). Ein gutes LinkedIn-Profil ist deine B2B-Visitenkarte.',
-   steps:[
-     {t:'Profilfoto: Gleiches professionelles Foto wie Instagram', tip:'Konsistenz uber alle Plattformen schafft Wiedererkennungswert und Vertrauen.'},
-     {t:'Headline optimieren: "NLP Coach | Stressmanagement | Ich helfe Menschen ihr volles Potenzial zu entfalten"', tip:'Die Headline erscheint bei jeder Suche und jedem Kommentar. Sie muss sofort klar machen was du tust.'},
-     {t:'About-Bereich schreiben: 3 Absatze: Deine Geschichte / Wie du hilfst / Was du anbietest', tip:'Der About-Bereich ist dein Pitch. Schreib ihn in der ersten Person, personlich und direkt.'},
-     {t:'Ersten LinkedIn-Post schreiben: "Warum Stress das groesste Karriereproblem deiner Generation ist" - 200-300 Worter, personlich, mit konkreten Zahlen', tip:'LinkedIn-Texte ohne Zeilenwechsel werden nicht gelesen. Schreibe jeden Satz in eine neue Zeile. Das sieht komisch aus aber es funktioniert.'},
-     {t:'5 relevante Hashtags am Ende: #stressmanagement #leadership #coaching #burnout #nlp', tip:'LinkedIn-Hashtags helfen dem Algorithmus deine Zielgruppe zu finden.'}
-   ]}
-]},
-
-// ─── TAG 4 ───
-{day:4, phase:1, focus:'Facebook Community aufbauen',
-tasks:[
-  {time:'06:00-06:30', text:'Facebook-Gruppe erstellen', tag:'FACEBOOK',
-   why:'Eine eigene Facebook-Gruppe ist dein wertvollstes kostenloses Marketing-Tool. Es ist eine Gemeinschaft die dir gehoert - kein Algorithmus kann sie dir wegnehmen. Hier baust du Vertrauen auf und fuellst spater deine Seminare und Coachings.',
-   steps:[
-     {t:'Gehe auf Facebook, klicke auf "Gruppen" und dann "Neue Gruppe erstellen"', tip:'Wahle "Private Gruppe" - das schafft Exklusivitat und die Mitglieder fuhlen sich sicherer beim Teilen.'},
-     {t:'Gruppenname: "Stressfrei leben - Der Architekt deines Lebens | Community"', tip:'Der Name muss das Ergebnis (stressfrei leben) und deine Marke (Architekt) enthalten. Klar, merkbar, zielgruppenspezifisch.'},
-     {t:'Cover-Bild erstellen auf Canva: 1640x856px, dein Foto + Gruppenname + Tagline', tip:'Canva ist kostenlos. Nutze warme, naturliche Farben passend zu deiner Marke. Das Bild ist das erste was neue Mitglieder sehen.'},
-     {t:'Gruppenbeschreibung schreiben: Wer ist diese Gruppe fur, was bekommst du hier, welche Regeln gibt es', tip:'Eine klare Beschreibung zieht die richtigen Menschen an und halt falsche fern.'},
-     {t:'3 Begrussungs-Posts vorbereiten: 1. Willkommen-Post 2. Vorstellungsrunde 3. Ersten Mehrwert-Post', tip:'Eine neue Gruppe braucht sofort Content. Leere Gruppen wirken verlassen. Bereite 3 Posts vor die du in den ersten 3 Tagen postest.'}
-   ]},
-  {time:'06:30-07:00', text:'Erste 20 Mitglieder einladen', tag:'NETZWERK',
-   why:'Eine Gruppe mit 0 Mitgliedern ladet niemanden ein. Du brauchst eine kritische Masse von mindestens 20-30 Menschen damit die Gruppe lebendig wirkt. Dein warmes Netzwerk ist der Startmotor.',
-   steps:[
-     {t:'Gehe durch deine Facebook-Freundesliste und lade alle ein die passen konnten', tip:'Lade nur Menschen ein die wirklich interessiert sein konnten. Falsche Mitglieder schaden der Gruppenkultur.'},
-     {t:'Sende 10 personlichen Einladungen per Messenger: "Hey [Name], ich habe eine Community gegruntet fur Menschen die Stress reduzieren und ihr Leben bewusster gestalten wollen. Ich denke du passt super rein - magst du joinen?"', tip:'Personliche Einladungen haben 80% Akzeptanzrate. Masse-Einladungen 10%.'},
-     {t:'Poste in deinen anderen Kanalen (Instagram Story, LinkedIn) uber die neue Gruppe', tip:'Kross-Promotion ist Pflicht. Jeder Kanal bewirbt die anderen.'}
-   ]},
-  {time:'07:00-07:30', text:'Ersten Gruppen-Post und Vorstellungsrunde', tag:'FACEBOOK',
-   why:'Die ersten Posts einer Gruppe bestimmen die Kultur fur immer. Wenn dein erster Post Mehrwert bietet und Interaktion einladt, wird die Gruppe aktiv. Wenn er werbend ist, wird die Gruppe still.',
-   steps:[
-     {t:'Willkommen-Post: "Herzlich Willkommen! Diese Gruppe ist ein sicherer Raum fur alle die... Ich bin Sorin, NLP Coach, und ich bin hier um euch zu begleiten. Stell dich kurz vor: Wer bist du und was beschaeftigt dich gerade?"', tip:'Eine offene Frage am Ende erzwingt Interaktion. Menschen antworten gerne auf personliche Fragen.'},
-     {t:'Mehrwert-Post: Teile einen kurzen NLP-Tipp: "Eine Technik die ich heute morgen gemacht habe um meinen Stress zu senken: [konkrete Technik]"', tip:'Zeige sofort Wert. Menschen sollen denken: "Wow, wenn das kostenlos so gut ist, wie gut ist dann das Bezahlte?"'},
-     {t:'Kommentiere und antworte auf JEDEN Kommentar in den ersten Tagen', tip:'In der Anfangsphase ist deine Reaktiongeschwindigkeit entscheidend. Jeder Kommentar muss eine Antwort bekommen.'}
-   ]}
-]},
-
-// ─── TAG 5 ───
-{day:5, phase:1, focus:'Content-Rhythmus etablieren',
-tasks:[
-  {time:'06:00-06:30', text:'Inhaltsplan fur die naechsten 4 Wochen erstellen', tag:'CONTENT',
-   why:'Ohne Plan postest du sporadisch, wirst ungeduldig und hoerst auf. Ein Content-Plan nimmt die taegliche "Was soll ich heute posten?" Frage weg und macht dich 10x produktiver. Er ist dein Fahrplan zur Sichtbarkeit.',
-   steps:[
-     {t:'Oeffne einen Kalender (Google Sheets oder Notion) und trage alle 28 Tage ein', tip:'Visuell planen hilft. Du siehst sofort wo Lucken sind und ob der Mix stimmt.'},
-     {t:'Montag = Motivations-Post (Mindset, Zitate, deine Geschichte)', tip:'Montag ist der starkste Tag fur Motivation - Menschen starten die Woche und sind empfanglich.'},
-     {t:'Mittwoch = Wert-Post (NLP-Tipp, Stressmanagement-Technik, konkrete Ubung)', tip:'Mittwoch = Wochenmitte. Menschen brauchen einen Impuls. Gib ihnen etwas das sie HEUTE noch anwenden konnen.'},
-     {t:'Freitag = Personlicher Post (deine Geschichte, Hinter-den-Kulissen, Community-Frage)', tip:'Freitag sind Menschen entspannter und offener fur personliche Inhalte. Das starkt die Verbindung zu dir.'},
-     {t:'Taglich = 1-3 Stories (Mix aus: Leben, Seminar-Promo, Tipps, Q&A)', tip:'Stories halten dich taglich prasent ohne grossen Aufwand. 2-3 Stories taglich reichen - das sind 5 Minuten.'},
-     {t:'Trage auch alle Seminar-Promo-Posts ein: Countdown, Testimonials, letzte Platze', tip:'Plane alle Seminar-Posts jetzt schon - so vergisst du nichts und baust systematisch Druck auf.'}
-   ]},
-  {time:'06:30-07:30', text:'Zweiten Reel aufnehmen und veroffentlichen', tag:'CONTENT',
-   why:'Regelmassigkeit ist wichtiger als Perfektionismus. Der Algorithmus belohnt Konsequenz. Wer 2x pro Woche postet wachst langfristig schneller als wer 1 perfekten Post pro Monat macht.',
-   steps:[
-     {t:'Thema: "Eine NLP-Technik gegen Stress in 60 Sekunden" - zeige die PACE-LEAD Technik oder Ankern', tip:'Konkrete, sofort anwendbare Techniken performen am besten. Menschen wollen keine Theorie sondern Tools.'},
-     {t:'Halte dich an die Formel: Hook (0-3 Sek) + Problem (3-10 Sek) + Losung (10-50 Sek) + CTA (50-60 Sek)', tip:'Diese Formel funktioniert weil sie dem Gehirn folgt: Aufmerksamkeit > Identifikation > Losung > Handlung.'},
-     {t:'Untertitel hinzufugen in CapCut - PFLICHT', tip:'Teste: mach einen Reel ohne Ton an. Verstehst du ihn? Wenn nicht, brauchst du Untertitel.'},
-     {t:'In der Bio steht dein Seminar-Link - weise im Video darauf hin: "Link in Bio fur mein Seminar"', tip:'Jedes Video muss einen klaren Handlungsaufruf haben. Was soll die Person JETZT tun?'},
-     {t:'Reel veroffentlichen zwischen 7-9 Uhr (hochste Aktivitatszeit)', tip:'Timing ist messbar. Fruhe Morgen und Abende 17-20 Uhr haben die groesste Reichweite. Nutze das.'}
-   ]}
-]},
-
-// ─── TAG 6 ───
-{day:6, phase:1, focus:'Direktes Nachfassen und Seminar-Push',
-tasks:[
-  {time:'06:00-06:45', text:'10 Personen personlich kontaktieren', tag:'NETZWERK',
-   why:'Die meisten Anmeldungen fur ein Seminar kommen nicht vom Zufall sondern von direkter, personlicher Ansprache. Menschen zogern - sie brauchen einen kleinen Schubs. Dieser Schubs bist du. Sei nicht schuchtern - du hilfst ihnen, nicht verkaufst ihnen.',
-   steps:[
-     {t:'Liste machen: 10 Menschen die von deinem Seminar profitieren wurden - konkret mit Namen', tip:'Denke an Menschen die du uber Stress, Burnout, schlechten Schlaf, Uberforderung reden horst.'},
-     {t:'Individuelle WhatsApp-Nachricht an jeden: "[Name], ich denke an dich. Du hattest doch mal erwaehnt dass du mit [spezifisches Thema] kampfst. Ich mache am 20. Juni ein Seminar dazu. Ware das etwas fur dich?"', tip:'Beziehe dich auf ein konkretes Gesprach oder Thema das du von ihnen kennst. Das zeigt dass du aufgepasst hast und ist nicht generisch.'},
-     {t:'Wenn ja: Sofort den Link schicken und nach einem Zahlungs-Commitment fragen', tip:'Ein "Ja, interessiert mich" ohne Anmeldung ist kein Ja. Schicke sofort den Link und frag: "Soll ich dir den Link schicken?"'},
-     {t:'Wenn zoeggert: Frage "Was halt dich zuruck?" und adressiere den Einwand direkt', tip:'Die haufigsten Einwande sind: Preis, Zeit, Zweifel ob es hilft. Du kennst die Antworten - gib sie.'},
-     {t:'Alle Gesprache in einer Liste tracken: Name / Status (interessiert, angemeldet, nicht interessiert)', tip:'Tracking ist Professionalitat. Du willst wissen wer noch nachgefasst werden muss.'}
-   ]},
-  {time:'06:45-07:30', text:'Instagram Story Q&A starten', tag:'SOCIAL MEDIA',
-   why:'Ein Q&A auf Instagram bringt dir drei Vorteile gleichzeitig: Du bekommst Content-Ideen (was fragen die Leute?), du zeigst Expertise, und der Algorithmus liebt hohe Interaktionen. Es ist der einfachste Weg um deine Zielgruppe wirklich kennenzulernen.',
-   steps:[
-     {t:'Story erstellen und den Fragen-Sticker hinzufuegen: "Stell mir deine groesste Stressfrage!"', tip:'Eine konkrete Aufforderung bekommt mehr Antworten als eine allgemeine. "Frag mich was!" ist schwacher als "Stell mir deine Stressfrage!"'},
-     {t:'Alle Fragen beantworten - jede einzelne in einer eigenen Story', tip:'Beantworte ALLE Fragen, auch die kleinen. Das zeigt Wertschatzung und motiviert andere zu fragen.'},
-     {t:'Die besten Fragen als eigene Posts aufbereiten fur spatere Tage', tip:'Content recyceln ist smart. Eine gute Frage wird zu 3 Reels, 1 Artikel und 5 Stories.'}
-   ]}
-]},
-
-// ─── TAG 7 ───
-{day:7, phase:1, focus:'Wochenreflexion und Auswertung',
-tasks:[
-  {time:'06:00-07:30', text:'Woche 1 auswerten und optimieren', tag:'REFLEXION',
-   why:'Was du nicht misst, kannst du nicht verbessern. Die Wochenreflexion ist dein Kompass. Sie zeigt was funktioniert, was nicht, und was du als nachstes priorisieren sollst. Ohne sie arbeitest du blind.',
-   steps:[
-     {t:'Zahlen aufschreiben: Instagram-Follower, Facebook-Gruppen-Mitglieder, Seminar-Anmeldungen, WhatsApp-Antworten', tip:'Leg ein einfaches Tracking-Sheet an (Google Sheets): Datum / Kanal / Kennzahl. Du willst Trends sehen.'},
-     {t:'Analysiere: Welcher Post hatte die groesste Reichweite? Welcher die meisten Kommentare?', tip:'Das ist dein Marktforschungs-Tool. Was die Leute kommentieren und teilen, davon wollen sie mehr.'},
-     {t:'3 Learnings aufschreiben: Was hat diese Woche funktioniert? Was hat nicht funktioniert? Was machst du naechste Woche anders?', tip:'Schreibe es auf - nicht im Kopf. Was aufgeschrieben ist wird umgesetzt. Was nur gedacht wird vergisst du.'},
-     {t:'Seminar-Status: Wie viele Anmeldungen hast du? Ziel: 10+ bis Ende Woche 2', tip:'Wenn du unter 5 Anmeldungen hast nach Woche 1, erhohe die direkte Ansprache. Mehr WhatsApp-Nachrichten, mehr personliche Einladungen.'},
-     {t:'Plane die konkrete Woche 2: Was sind die Top-3-Prioritaten?', tip:'Wer keine Prioritaten hat, tut alles gleichzeitig und nichts richtig. Wahle 3 Hauptziele fur Woche 2.'}
-   ]}
-]},
-
-// ─── TAG 8 ───
-{day:8, phase:1, focus:'Testimonials sammeln',
-tasks:[
-  {time:'06:00-07:30', text:'Testimonials von frueheren Klienten oder Bekannten einsammeln', tag:'MARKETING',
-   why:'Social Proof ist der mächtigste Verkaufsmechanismus. Menschen vertrauen anderen Menschen mehr als dir. Ein einziges echtes Testimonial ist mehr wert als 10 eigene Werbe-Posts. Ohne Testimonials ist dein Marketing schwach.',
-   steps:[
-     {t:'Liste erstellen: Wer hat dich bisher als Coach erlebt, wer hat ein Seminar besucht, wer hat positives Feedback gegeben?', tip:'Denk auch an informelle Gesprache, Freunde denen du geholfen hast, NLP-Ubungspartner. Alle zahlen.'},
-     {t:'3-5 Personen per WhatsApp/Telefon kontaktieren: "Hey [Name], ich baue gerade mein Coaching-Business auf. Darf ich dich um ein kurzes Testimonial bitten? Ein-zwei Satze uber deine Erfahrung mit mir wurden mir sehr helfen."', tip:'Mach es ihnen EINFACH. Sag genau was du brauchst - ein Video (30 Sek) oder 2-3 Satze Text. Je einfacher, desto haufiger bekommst du ein Ja.'},
-     {t:'Testimonial-Frage vorbereiten: "Was hat sich durch die Arbeit mit mir verandert? Was war dein groesstes Learning?"', tip:'Diese Frage erzeugt die besten Testimonials weil sie auf Ergebnis fokussiert, nicht auf den Prozess.'},
-     {t:'Erhaltene Testimonials als Canva-Grafik aufbereiten: Zitat + Name + optional Foto', tip:'Ein Testimonial als Bild-Post bekommt 3x mehr Reichweite als ein Text-Only Post.'},
-     {t:'Testimonial auf Instagram, Facebook und LinkedIn veroffentlichen mit Text: "Das sagen Menschen uber die Arbeit mit mir..."', tip:'Plane mindestens 2 Testimonial-Posts pro Woche. Social Proof kann nie genug sein.'}
-   ]}
-]},
-
-// ─── TAG 9 ───
-{day:9, phase:1, focus:'Reel-Serie starten',
-tasks:[
-  {time:'06:00-07:30', text:'3 Reels auf einmal aufnehmen (Batch-Produktion)', tag:'CONTENT',
-   why:'Batch-Produktion ist das Geheimnis erfolgreicher Content-Creator. Statt jeden Tag 30 Minuten zu filmen, nimmst du 3 Videos an einem Morgen auf. Das spart Zeit, schafft einen konsistenten Look und du hast immer Content-Vorrat.',
-   steps:[
-     {t:'Themen vorbereiten: 1. Atemtechnik gegen akuten Stress (4-7-8 Methode) 2. Reframing - wie du negative Gedanken umdetest 3. Ankern - wie NLP positive Zustande verankert', tip:'Konkrete Techniken > abstrakte Konzepte. Menschen wollen Tools die sie heute noch anwenden konnen.'},
-     {t:'Outfit: Ziehe dich fur alle 3 Videos unterschiedlich an (3 verschiedene Oberteile)', tip:'Wenn du alle Videos am gleichen Tag aufnimmst aber unterschiedliche Kleidung tragst, glaubt niemand dass es an einem Tag war. Das schafft Authentizitat.'},
-     {t:'Setup vorbereiten: Handy auf Stativ, Licht gecheckt, Hintergrund aufgeraumt', tip:'Einmal Setup machen, 3x nutzen. Das ist Effizienz.'},
-     {t:'Jedes Video in maximal 2 Takes aufnehmen - kein Perfektionismus', tip:'Take 1 ist oft der authentischste. Menschen mogen echte Menschen, keine Schauspieler.'},
-     {t:'Alle 3 Videos in CapCut schneiden: Anfang/Ende kuerzen, Untertitel, Musik leise hinten', tip:'Musik macht Videos 30% ansprechender. Nutze urheberrechtsfreie Musik aus dem CapCut-Archiv.'},
-     {t:'Videos planen: Heute, Mittwoch, Freitag veroffentlichen - nicht alle auf einmal', tip:'3 Videos auf einmal hochzuladen bringt nichts. Verteile sie uber die Woche fur konstantePresenz.'}
-   ]}
-]},
-
-// ─── TAG 10 ───
-{day:10, phase:1, focus:'Seminar-Programm finalisieren',
-tasks:[
-  {time:'06:00-07:30', text:'Detailliertes Seminar-Programm fuer 20. Juni ausarbeiten', tag:'SEMINAR',
-   why:'Ein schlecht vorbereitetes Seminar kann deine Reputation zerstoren. Ein gut vorbereitetes schafft begeisterte Teilnehmer die dich weiterempfehlen und ins Coaching kommen. Das Programm ist dein Produkt - investiere Zeit.',
-   steps:[
-     {t:'Zeitstruktur festlegen: 09:00 Ankunft / 09:15 Beginn / 10:45 Pause / 11:00 weiter / 12:30 Mittagspause / 13:30 Nachmittag / 15:00 Pause / 15:15 weiter / 16:30 Abschluss-Runde / 17:00 Ende', tip:'Pausen sind so wichtig wie Inhalte. Das Gehirn kann maximal 90 Min am Stuck aufnehmen. Pausen sind keine Verschwendung.'},
-     {t:'Modul 1 (09:15-10:45): Was ist Stress wirklich? Neurowissenschaft einfach erklart, Stressmuster erkennen, Selbstanalyse-Ubung', tip:'Starte mit Selbsterkenntnis. Menschen wollen verstehen warum sie so sind wie sie sind. Das schafft Motivation fur den Rest.'},
-     {t:'Modul 2 (11:00-12:30): NLP-Techniken gegen Stress - Ankern, Reframing, Atemtechniken, praktische Ubungen in Paaren', tip:'Praxis ist wichtiger als Theorie im Seminar. 70% Ubungen, 30% Theorie ist die goldene Regel.'},
-     {t:'Modul 3 (13:30-15:00): Kommunikation und Beziehungen - wie Stress unsere Kommunikation beeinflusst, Gewaltfreie Kommunikation Intro', tip:'Beziehungs-Thema immer nachmittags - da sind Menschen emotionaler und offener.'},
-     {t:'Modul 4 (15:15-16:30): Zukunftsgestaltung - dein persoenlicher Aktionsplan, 30-60-90 Tage Ziele, Ressourcen-Verankerung', tip:'Jeder Teilnehmer soll das Seminar mit einem konkreten Plan verlassen. Das ist der groesste Wert.'},
-     {t:'Abschluss (16:30-17:00): Feedback-Runde, Testimonial-Video-Aufnahme, Coaching-Angebot vorstellen', tip:'Das Coaching-Angebot am Ende ist naturlich und ehrlich. Sage: Wer tiefer arbeiten mochte, ich habe 3 Platze frei.'}
-   ]}
-]},
-
-// ─── TAGS 11-30 condensed but with detail ───
-{day:11, phase:1, focus:'Email-Liste starten',
-tasks:[
-  {time:'06:00-07:30', text:'Lead-Magnet erstellen und Newsletter einrichten', tag:'MARKETING',
-   why:'Deine Email-Liste ist dein wichtigstes Business-Asset. Instagram kann dich sperren. Facebook kann dich sperren. Deine Email-Liste gehoert NUR dir. 1.000 Email-Abonnenten sind mehr wert als 10.000 Instagram-Follower.',
-   steps:[
-     {t:'Lead-Magnet erstellen auf Canva: "5 NLP-Techniken fuer sofortigen Stressabbau" als PDF, 3-5 Seiten', tip:'Ein Lead-Magnet muss ein konkretes Problem in kurzer Zeit losen. 5 Techniken die jeder sofort anwenden kann ist perfekt.'},
-     {t:'Brevo.com (fruher Sendinblue) kostenloses Konto erstellen - bis 300 Emails/Tag kostenlos', tip:'Brevo ist die beste kostenlose Option fur Anfanger. Mailchimp hat zu viele Einschraenkungen in der kostenlosen Version.'},
-     {t:'Willkommens-Email schreiben: Danke fur Download / Hier ist dein PDF / Was erwartet dich / Seminar-Hinweis', tip:'Die Willkommens-Email hat die hochste Offnungsrate aller Emails (50-80%). Mache sie besonders gut.'},
-     {t:'Opt-in Link erstellen und in Instagram Bio einfugen (ersetze Eventbrite-Link kurz davor)', tip:'Tausche den Link nur wenn das Seminar voll ist. Solange Platze frei sind, bleibt der Seminar-Link.'},
-     {t:'Posts auf Instagram und Facebook: "Gratis PDF: 5 Techniken gegen Stress - Link in Bio"', tip:'Bewirb den Lead-Magnet 2x pro Woche. Er bringt dir taglich neue Email-Kontakte.'}
-   ]}
-]},
-
-{day:12, phase:1, focus:'Anette: Session 1 vorbereiten',
-tasks:[
-  {time:'06:00-07:30', text:'Anette Follow-Up und erste Session vorbereiten', tag:'COACHING',
-   why:'Anette ist dein erster bezahlter Klient. Wie du mit ihr arbeitest bestimmt deine erste Referenz, dein erstes Testimonial und deinen ersten Word-of-Mouth. Bereite diese Session mit voller Sorgfalt vor.',
-   steps:[
-     {t:'WhatsApp an Anette: "Liebe Anette, ich freue mich auf unsere erste Session! Wann passt es dir diese Woche?"', tip:'Sei proaktiv. Warte nicht darauf dass sie sich meldet. Zeige Engagement.'},
-     {t:'Session-Vorbereitung: Lies deine Notizen vom Erstgesprach durch - was sind ihre Hauptthemen?', tip:'Personalisierung ist der Unterschied zwischen einem guten und einem aussergewohnlichen Coach.'},
-     {t:'3 mogliche NLP-Techniken fuer ihre Themen aussuchen und vorbereiten', tip:'Bereite immer 3 vor, nutze 1-2. Flexibilitat in der Session ist wichtig - du weisst nie genau wohin das Gesprach geht.'},
-     {t:'Session-Struktur: Ankommen (10 Min) / Thema vertiefen (20 Min) / NLP-Arbeit (40 Min) / Integration (15 Min) / Hausaufgabe (5 Min)', tip:'90 Minuten fuhlen sich ohne Struktur chaotisch an. Eine klare Struktur gibt dir und deinem Klienten Sicherheit.'},
-     {t:'Hausaufgaben vorbereiten: Was soll Anette bis Session 2 beobachten oder uben?', tip:'Hausaufgaben zwischen Sessions verdoppeln den Lernerfolg. Sie halten die Veranderung am Leben.'}
-   ]}
-]},
-
-{day:13, phase:1, focus:'LinkedIn Netzwerk ausbauen',
-tasks:[
-  {time:'06:00-07:30', text:'20 neue LinkedIn-Kontakte hinzufuegen', tag:'LINKEDIN',
-   why:'LinkedIn ist Goldgrube fuer B2B. Ein Firmen-Workshop bringt dir 1.500-3.500 Euro an einem Tag. Diese Kunden findest du nicht auf Instagram - die sind auf LinkedIn. Jede Verbindung dort ist potenziell ein Firmen-Klient.',
-   steps:[
-     {t:'Suchbegriffe auf LinkedIn: "HR Manager Deutschland", "Personalentwicklung", "Teamleiter", "Unternehmensberater"', tip:'Spezifische Suchen bringen relevantere Kontakte als allgemeine.'},
-     {t:'Personliche Verbindungsanfrage schreiben (max 200 Zeichen): "Hallo [Name], ich bin NLP Coach spezialisiert auf Stressmanagement fuer Fuhrungskrafte. Ich wuerde mich gerne mit Ihnen vernetzen."', tip:'NIEMALS die Standard-Anfrage ohne Text senden. Eine personliche Nachricht hat 5x hohere Akzeptanzrate.'},
-     {t:'Profil der Person kurz anschauen - gibt es einen Aufhanger? Gemeinsame Gruppen? Geteilte Interessen?', tip:'Ein geteilter Aufhanger in der Anfrage: "Ich sehe Sie sind auch in der Gruppe XY" verdoppelt die Akzeptanzrate.'},
-     {t:'Nach Verbindung: Dankes-Nachricht senden, KEIN Verkaufsangebot', tip:'Der grosste Fehler auf LinkedIn: sofort verkaufen nach der Verbindung. Erst aufwarmen, dann anbieten.'},
-     {t:'Taglich 1 hilfreichen Kommentar auf Posts von Zielkunden hinterlassen', tip:'Kommentare erhohen deine Sichtbarkeit massiv. Andere Follower des Posters sehen deinen Kommentar - kostenlose Reichweite.'}
-   ]}
-]},
-
-{day:14, phase:1, focus:'Woche 2 Abschluss - Seminar Push',
-tasks:[
-  {time:'06:00-07:30', text:'Letzter Seminar-Push vor Woche 3', tag:'SEMINAR',
-   why:'Du hast noch eine Woche bis zum Seminar. Jetzt ist der entscheidende Moment. In den letzten 7 Tagen vor einem Event melden sich 40-60% aller Teilnehmer an - die Dringlichkeit steigt. Nutze das.',
-   steps:[
-     {t:'Seminar-Status prufen: Wie viele Anmeldungen? Ziel: mindestens 10 bis heute', tip:'Wenn du unter 10 bist: Erhohe die personliche Ansprache drastisch. Ruf 5 Personen an statt nur zu schreiben.'},
-     {t:'Countdown-Post: "Noch 7 Tage - nur noch X Platze frei!" auf allen Kanalen', tip:'Verwende die echte Zahl der freien Platze. Echte Zahlen sind uberzeugender als vage Aussagen.'},
-     {t:'Direkte Einladungen an 20 weitere Personen senden - jemanden den du noch nicht gefragt hast', tip:'Dehne deinen Kreis. Wer ist der Freund deines Freundes? Wer arbeitet mit jemandem den du kennst?'},
-     {t:'Facebook-Gruppe: Seminar-Thema als Diskussion starten - erzeuge organisches Interesse', tip:'Stelle eine Frage die das Seminar-Thema anspricht: "Was ist eure groesste Stressquelle im Alltag?" - die Antworten werden anderen zeigen dass das Thema relevant ist.'},
-     {t:'Woche 2 Reflexion: Zahlen dokumentieren, Top-3 Prioritaten fur Woche 3 (Seminar-Woche!) festlegen', tip:'Woche 3 ist dein wichtigster Moment bis jetzt. Bereite dich vor, nicht nur das Seminar sondern auch die Nachbereitung.'}
-   ]}
-]},
-
-{day:15, phase:1, focus:'Letzte Seminar-Vorbereitung',
-tasks:[
-  {time:'06:00-07:30', text:'Seminar-Materialien und Praesentation fertigstellen', tag:'SEMINAR',
-   why:'Professionelle Materialien hinterlassen einen bleibenden Eindruck. Teilnehmer nehmen Handouts nach Hause - das ist deine Visitenkarte die sie monatelang sehen. Außerdem reduziert gute Vorbereitung deinen eigenen Stress am Tag.',
-   steps:[
-     {t:'Praesentation in Canva erstellen: Professionelles Design, dein Logo/Name auf jeder Folie, warme Farben', tip:'Nutze maximal 5-6 Worter pro Folie. Folien sind kein Textbuch - sie sind visuelle Unterstutzung.'},
-     {t:'Handout erstellen: A4, 1-2 Seiten: Tagesablauf, Schlusselbegriffe, 3 wichtigste Ubungen, Kontaktdaten', tip:'Das Handout ist deine Visitenkarte plus. Teilnehmer behalten es - und denken an dich wenn sie es wieder sehen.'},
-     {t:'Ubungsblatter drucken: Fur jede praktische Ubung ein Blatt mit Anleitung und Reflexionsfragen', tip:'Schriftliche Reflexion vertieft das Lernen 3x mehr als nur zuhoren.'},
-     {t:'Namenschilder vorbereiten, Stiften bereithalten, Wasser besorgen', tip:'Diese Details zeigen Professionalitat. Teilnehmer merken wenn jemand an sie gedacht hat.'},
-     {t:'Kamera/Handy aufstellen Plan: Wo filmst du Testimonials nach dem Seminar?', tip:'Nach dem Seminar sind die Teilnehmer emotional offen - das ist der perfekte Moment fur Testimonials. Habe die Kamera bereit.'}
-   ]}
-]},
-
-{day:16, phase:1, focus:'Seminar-Countdown Posts',
-tasks:[
-  {time:'06:00-07:30', text:'Finale Kommunikation vor dem Seminar', tag:'CONTENT',
-   why:'Die Tage vor dem Event sind kritisch. Teilnehmer die schon angemeldet sind brauchen Bestatigung und Vorfreude. Nicht-Angemeldete brauchen einen letzten Push. Beide Gruppen brauchst du.',
-   steps:[
-     {t:'Email/WhatsApp an alle Angemeldeten: Uhrzeit, Adresse, was mitbringen, was sie erwartet', tip:'Logistik-Infos 24h vor dem Event reduzieren No-Shows deutlich. Menschen die informiert sind kommen.'},
-     {t:'Instagram/Facebook Post: "Morgen ist es soweit! Das Stressmanagement-Seminar startet. Ich bin so aufgeregt euch alle zu treffen!"', tip:'Teile deine echte Begeisterung. Das ist ansteckend und erinnert Last-Minute-Interessenten.'},
-     {t:'Letzte Chance Story: "Letzter Tag - noch X Platze frei - Link in Bio"', tip:'Last-Minute-Buchungen machen oft 20-30% der Teilnehmer aus. Gib ihnen die Chance.'},
-     {t:'Mental vorbereiten: Visualisierung - stelle dir vor wie du das Seminar fuhrst, wie die Teilnehmer lacheln', tip:'Sportler nutzen Visualisierung weil sie funktioniert. Dein Gehirn unterscheidet nicht zwischen Real und Vorgestellt.'}
-   ]}
-]},
-
-{day:17, phase:1, focus:'SEMINAR TAG - 20. JUNI',
-tasks:[
-  {time:'GANZTAGS', text:'DEIN TAGESSEMINAR - Heute ist dein grosser Tag!', tag:'SEMINAR',
-   why:'Heute ist der Moment fur den du die letzten 2 Wochen gearbeitet hast. Sei voll prasent. Sei du selbst. Du weisst was du tust. Vertraue deiner Vorbereitung. Das hier ist nicht nur ein Seminar - es ist der Beweis dass dein System funktioniert.',
-   steps:[
-     {t:'1 Stunde vorher ankommen: Raum einrichten, Technik testen, Materialien auslegen', tip:'Fruehes Ankommen gibt dir Zeit dich zu sammeln und den Raum mit deiner Energie zu fullen.'},
-     {t:'Jeden Teilnehmer personlich begrussen - Namen merken oder Namenschilder nutzen', tip:'Menschen lieben es beim Namen genannt zu werden. Das schafft sofort Verbindung.'},
-     {t:'Fotos und Videos machen - von den Ubungen, den Teilnehmern (mit Erlaubnis), von dir beim Reden', tip:'Dieses Material ist Gold fuer dein Marketing. Du brauchst Bilder vom "echten" Seminar.'},
-     {t:'Am Ende: Testimonial-Videos aufnehmen - Handy bereithalten', tip:'Frage direkt: "Darf ich kurz filmen? Einfach sagen was du heute mitgenommen hast." Meistens sagen alle Ja.'},
-     {t:'Coaching-Angebot vorstellen: "Wer tiefer arbeiten mochte, ich habe 3 Coaching-Platze frei. Komm kurz zu mir."', tip:'Sage es einmal, klar und selbstbewusst. Keine Entschuldigung, kein Drangen. Wer will, kommt.'}
-   ]}
-]},
-
-{day:18, phase:1, focus:'Seminar-Nachbereitung',
-tasks:[
-  {time:'06:00-07:30', text:'Dankesnachrichten und Testimonials einsammeln', tag:'KLIENTEN',
-   why:'Die 24 Stunden nach dem Seminar sind die wertvollsten. Teilnehmer sind noch emotional beruhrt. Jetzt ist der beste Moment fur Testimonials, Weiterempfehlungen und Coaching-Abschlusse. Warte nicht.',
-   steps:[
-     {t:'Personliche WhatsApp an jeden Teilnehmer: "Danke dass du da warst! Was nimmst du am meisten mit?"', tip:'Eine personliche Nachricht zeigt Wertschatzung. Die Antworten werden dein bestes Feedback sein.'},
-     {t:'Bonus-PDF schicken: "5 zusatzliche NLP-Techniken fur den Alltag" als Nachbereitungs-Geschenk', tip:'Ein Bonus nach dem Seminar ubertrifft Erwartungen. Menschen erinnern sich an wie du sie fuhlen last.'},
-     {t:'Testimonial-Anfrage: "Darf ich dich um ein kurzes Feedback bitten? Einfach 2-3 Satze was das Seminar dir gebracht hat"', tip:'Direkt nach dem Seminar bekommst du 80% mehr Testimonials als eine Woche spater.'},
-     {t:'Coaching-Interessenten nachfassen: "Hallo [Name], du hattest Interesse am Coaching erwahnt. Soll ich dir die Details schicken?"', tip:'Jede Person die beim Seminar Interesse zeigte ist ein warmer Lead. Nachfassen ist Pflicht.'},
-     {t:'Content planen: Welche Fotos/Videos postest du wann? Erstelle einen Mini-Plan', tip:'Seminar-Content hat hohe Glaubwurdigkeit. Plane 5-7 Posts aus dem Material der nachsten 2 Wochen.'}
-   ]}
-]},
-
-{day:19, phase:1, focus:'Post-Seminar Content',
-tasks:[
-  {time:'06:00-07:30', text:'Behind-the-Scenes und Seminar-Recap posten', tag:'CONTENT',
-   why:'Nach-Seminar-Content ist dein uberzeugendster Marketing-Content. Er zeigt Beweis (du machst es wirklich), Qualitat (die Teilnehmer sehen zufrieden aus) und schafft FOMO (die nicht dabei waren wollen beim nachsten Mal dabei sein).',
-   steps:[
-     {t:'Instagram-Post: Bestes Foto vom Seminar + Caption: "Gestern haben [X] Menschen gelernt... [1 konkretes Learning teilen]"', tip:'Teile ein spezifisches Learning vom Seminar. Nicht nur "es war super" sondern "wir haben gelernt dass..."'},
-     {t:'Reel: 30-Sekunden Highlight-Video vom Seminar mit Musik und Untertiteln', tip:'Ein Recap-Reel zeigt in 30 Sekunden was andere in 8 Stunden erlebt haben. Sehr wirkungsvoll.'},
-     {t:'Testimonials als Stories posten: Foto/Video der Teilnehmer mit ihrem Zitat', tip:'Testimonials direkt nach dem Seminar posten wahrend die Emotion noch frisch ist.'},
-     {t:'LinkedIn Post: "Was ich gestern bei meinem Stressmanagement-Seminar gelernt habe..." - professioneller Recap', tip:'LinkedIn-Publikum sieht: dieser Coach ist aktiv und hat echte Klienten. Das baut Glaubwurdigkeit auf.'}
-   ]}
-]},
-
-{day:20, phase:1, focus:'Coaching-Abschlusse nach Seminar',
-tasks:[
-  {time:'06:00-07:30', text:'Alle Seminar-Interessenten systematisch nachfassen', tag:'SALES',
-   why:'Das Seminar war ein Qualifizierungs-Event. Die Menschen die Interesse am Coaching zeigten sind die warmsten Leads die du je haben wirst. Sie kennen dich, vertrauen dir und haben deine Arbeit gesehen. Jetzt ist der Moment.',
-   steps:[
-     {t:'Liste aller Interessenten aus dem Seminar erstellen', tip:'Wer hat eine Visitenkarte gegeben? Wer hat nach dem Coaching-Angebot gefragt? Wer hat etwas notiert?'},
-     {t:'Jeden anschreiben - personliche WhatsApp: "Hey [Name], toll dich gestern kennengelernt zu haben! Du hattest erwahnt dass [ihr Thema] dich beschaeftigt. Ich habe nachgedacht und glaube wir konnten da sehr gute Arbeit leisten. Darf ich dir kurz das 3er-Paket erklaren?"', tip:'Beziehe dich auf etwas Konkretes aus dem Gesprach vom Seminar. Zeige dass du zugehort hast.'},
-     {t:'Fur jeden Interessierten: Discovery Call vereinbaren (15-20 Min)', tip:'Verkaufe nie im Chat. Verkaufe im Gesprach. Ein Call schliesst 5x mehr ab als ein Chat.'},
-     {t:'Discovery Call fuhren: Ihr Thema verstehen / Coaching vorstellen / Preis nennen / Ja oder Nein', tip:'Nutze dein Verkaufsskript. Stille nach dem Preis. Keine Entschuldigung.'},
-     {t:'Ziel: 1-2 Coaching-Buchungen aus dem Seminar = 600-1.200 Euro zusatzlich', tip:'Das macht das Seminar sofort profitabel und zeigt dass dein Funnel funktioniert.'}
-   ]}
-]},
-
-{day:21, phase:1, focus:'Woche 3 Reflexion',
-tasks:[
-  {time:'06:00-07:30', text:'Seminar-Auswertung und Naechstes Seminar planen', tag:'REFLEXION',
-   why:'Jedes Seminar ist ein Lernlabor. Was hat funktioniert? Was nicht? Diese Erkenntnisse machen dein nachstes Seminar 10x besser. Und: Das nachste Seminar jetzt zu planen halt dich im Fluss statt nach dem Hochgefuhl in ein Loch zu fallen.',
-   steps:[
-     {t:'Auswertung: Wie viele Teilnehmer? Umsatz Seminar? Umsatz Coaching-Abschlusse? Testimonials erhalten?', tip:'Zahlen lugen nicht. Dokumentiere alles - du wirst diese Daten fur dein nachstes Marketing brauchen.'},
-     {t:'Qualitative Auswertung: Was haben Teilnehmer am meisten gelobt? Was wurde kritisiert?', tip:'Kritik ist Gold. Sie zeigt dir genau was du beim nachsten Mal besser machen kannst.'},
-     {t:'Nachstes Seminar: Datum wshlen (August oder September), Location buchen oder online entscheiden', tip:'Warte nicht bis alles perfekt ist. Buche das Datum und kundige es an. Druck zwingt zur Handlung.'},
-     {t:'Preis fur nachstes Seminar: 79-97 Euro (du hast jetzt Testimonials = mehr Wert = hoeherer Preis)', tip:'Nach dem ersten Seminar hast du Beweise. Beweise rechtfertigen einen hoheren Preis.'}
-   ]}
-]},
-
-{day:22, phase:1, focus:'Content-System aufbauen',
-tasks:[
-  {time:'06:00-07:30', text:'Nachhaltigen Content-Workflow etablieren', tag:'CONTENT',
-   why:'Ein System das dir Content-Produktion zur Routine macht ist der Unterschied zwischen wachsendem und stagnierenden Business. Wer Content produziert wachst. Wer aufhort, verschwindet.',
-   steps:[
-     {t:'Content-Kalender fur August aufbauen: 3x Instagram, 2x LinkedIn, taglich Stories, 1x Facebook-Gruppe', tip:'Plane immer 2 Wochen im Voraus. So bist du nie unter Zeitdruck und der Content ist qualitativ besser.'},
-     {t:'Content-Themen-Kategorien festlegen und rotieren: Mindset / NLP-Technik / Stressmanagement / Personliche Story / Testimonial / Angebot', tip:'Eine klare Struktur verhindert dass du immer dasselbe postest. Variation halt dein Publikum engagiert.'},
-     {t:'Batch-Tag planen: Einmal pro Woche 90 Minuten Content produzieren (5-7 Posts auf einmal)', tip:'Batching ist die effizienteste Content-Methode. Du bist einmal im "Creator-Modus" statt jeden Tag 20 Minuten.'},
-     {t:'Scheduling-Tool nutzen: Meta Business Suite (kostenlos) fur Instagram und Facebook', tip:'Geplante Posts werden automatisch veroffentlicht. Das gibt dir Freiheit und Konsequenz gleichzeitig.'}
-   ]}
-]},
-
-{day:23, phase:1, focus:'Erstes Webinar planen',
-tasks:[
-  {time:'06:00-07:30', text:'Kostenloses Webinar konzipieren und datum festlegen', tag:'WEBINAR',
-   why:'Ein Webinar ist dein scalability-Tool. Ein Seminar hat 20 Teilnehmer. Ein Webinar kann 200 haben. Es ist die Vorstufe zu deinem Gruppen-Coaching und Academy. Ohne Webinare bist du auf lokale Reichweite beschrankt.',
-   steps:[
-     {t:'Titel: "Die 3 Stressfallen die dich ausbremsen - und wie du sie in 30 Minuten aufloest"', tip:'Der Titel muss ein spezifisches Versprechen machen. "Allgemeines uber Stress" bringt niemanden. "3 Stressfallen in 30 Minuten" ist konkret.'},
-     {t:'Datum festlegen: Ende Juli (ca. 25. Juli). Uhrzeit: 19:00 Uhr Dienstag oder Donnerstag', tip:'Dienstag und Donnerstag abend haben die hochste Webinar-Teilnahmerate. Montag/Freitag sind schlechter.'},
-     {t:'Zoom kostenloses Konto erstellen, Webinar-Raum einrichten', tip:'Zoom ist der Standard. Teilnehmer kennen es und vertrauen es. Nutze nicht etwas Exotisches.'},
-     {t:'Anmelde-Seite erstellen: Einfaches Google Form oder Brevo Landing Page', tip:'Die Anmeldeseite muss in 30 Sekunden klar machen: Was bekomme ich, wann, wie lange, was brauche ich.'},
-     {t:'Webinar-Struktur planen: 5 Min Begruessung / 35 Min Inhalt / 10 Min Q&A / 10 Min Angebot', tip:'Das Angebot am Ende ist legitim und erwartet. Sage es offen: "Am Ende zeige ich euch wie ihr tiefer arbeiten konnt."'}
-   ]}
-]},
-
-{day:24, phase:1, focus:'Academy-Vision dokumentieren',
-tasks:[
-  {time:'06:00-07:30', text:'For You Academy Grundkonzept verschriftlichen', tag:'ACADEMY',
-   why:'Was nicht aufgeschrieben ist existiert nicht. Deine Academy-Vision ist groß - aber sie bleibt ein Traum wenn sie nur in deinem Kopf ist. Heute machst du sie real indem du sie zu Papier bringst. Das ist der erste Schritt zu 1 Million Klienten.',
-   steps:[
-     {t:'Vision schreiben: Was ist For You Academy in 5 Jahren? Beschreibe es als wurde es schon existieren', tip:'Schreibe im Prasens: "For You Academy ist..." nicht "wird sein". Das Gehirn programmiert sich auf die Gegenwart.'},
-     {t:'Zielgruppe definieren: Wen bildest du aus? Coaches, Berater, Therapeuten, Fuhrungskrafte?', tip:'Je spezifischer deine Zielgruppe, desto starker dein Marketing. "Coaches die mit NLP arbeiten" ist besser als "alle die helfen wollen".'},
-     {t:'3 Academy-Level skizzieren: Level 1 (397 Euro) / Level 2 Mentorship (2.970 Euro) / Level 3 Franchise (individuell)', tip:'Ein 3-Stufen-Modell gibt Klienten einen Weg - sie fangen mit Level 1 an und wachsen. Das ist deine Leiter.'},
-     {t:'Domain reservieren: foryouacademy.de auf united-domains.de oder namecheap.com', tip:'Eine Domain kostet 10-15 Euro pro Jahr. Reserviere sie JETZT bevor jemand anders sie nimmt.'},
-     {t:'1-Seiter erstellen: Deine Vision, dein Angebot, dein Warum - wird die Basis fur spatere Website', tip:'Dieser 1-Seiter wird dein Academy-Pitch fur potenzielle Coaches und Partner sein.'}
-   ]}
-]},
-
-{day:25, phase:1, focus:'1:1 Klienten gewinnen',
-tasks:[
-  {time:'06:00-07:30', text:'Aktiv 3 neue Coaching-Klienten suchen', tag:'SALES',
-   why:'Dein 1:1 Coaching ist dein Cash Flow jetzt. 3 aktive Klienten = 1.800 Euro pro Paket-Runde = dein monatliches Grundeinkommen als Coach. Ohne stabile 1:1 Basis kannst du nicht in Academy und Gruppen investieren.',
-   steps:[
-     {t:'Post auf Instagram und LinkedIn: "Ich habe 3 Coaching-Platze frei in diesem Monat. Wer ernsthaft an seinen Blockaden/Zielen arbeiten mochte schreibt mir." - Direkt und klar', tip:'Ehrlichkeit und Direktheit wirken besser als Werbetexte. Menschen respektieren jemanden der klar kommuniziert was er anbietet.'},
-     {t:'5 Personen aus deinem Netzwerk direkt fragen: "Kenne ich jemanden fur den Coaching gerade passend ware?"', tip:'Empfehlungen konvertieren 10x besser als Kaltakquise. Dein Netzwerk ist deine Vertriebsmannschaft.'},
-     {t:'Facebook-Gruppe Frage posten: "Wen beschaeftigt gerade Stress, Blockaden oder das Gefuhl nicht vorwartszukommen? Ich habe 3 Platze frei."', tip:'Eine direkte Frage an deine Community ist legitim wenn du vorher Wert gegeben hast.'},
-     {t:'Fur jeden der antwortet: Discovery Call anbieten (kein Pitch im Chat)', tip:'Im Chat verkauft man schlecht. Im Gesprach verkauft man gut. Immer zum Call einladen.'},
-     {t:'Discovery Call fuhren nach dem Skript: Zuhoeren / Thema verstehen / Paket vorstellen / Preis nennen / Pause', tip:'Das Skript ist dein Netz. Du wirst immer besser je oefter du es nutzt.'}
-   ]}
-]},
-
-{day:26, phase:1, focus:'Gruppen-Coaching konzipieren',
-tasks:[
-  {time:'06:00-07:30', text:'Erstes Gruppen-Coaching planen und ankuendigen', tag:'GRUPPEN',
-   why:'Gruppen-Coaching ist dein Skalierungshebel. 8 Menschen zahlen je 127-197 Euro = 1.000-1.600 Euro in einem Block. Du arbeitest einmal, verdienst mehrfach. Das ist der erste Schritt von Zeit-gegen-Geld zu Wert-gegen-Geld.',
-   steps:[
-     {t:'Thema: "Stressfrei in 4 Wochen - Gruppen-Coaching mit NLP" - 4 Sessions a 90 Min in 4 Wochen', tip:'4 Wochen sind die optimale Laenge fur ein Gruppen-Coaching. Kurz genug um Commitment zu bekommen, lang genug fur echte Veranderung.'},
-     {t:'Format: Online via Zoom, jeden Mittwoch 19:00-20:30 Uhr, max 8 Personen', tip:'Mittwoch Abend ist optimal. Online macht es zuganglicher fur DACH und Rumanien gleichzeitig.'},
-     {t:'Preis: 127 Euro als Pilot-Preis (erste Runde), danach 197 Euro regulare', tip:'Der Pilot-Preis belohnt Early Adopters und gibt dir einen Grund zur Dringlichkeit: "Nur dieser ersten Gruppe".'},
-     {t:'Landing Page auf Canva/Google Sites erstellen: Was ist es, was bekommst du, wie meldest du dich an', tip:'Die Landing Page muss 3 Fragen beantworten: Was ist es? Fur wen ist es? Was kostet es?'},
-     {t:'Erstes Ankundigungspost auf allen Kanalen: "Ich starte mein erstes Online-Gruppen-Coaching! Nur 8 Platze. Pilot-Preis: 127 Euro."', tip:'Ankudige es mit Begeisterung. Deine Energie ubertragt sich auf die Leser.'}
-   ]}
-]},
-
-{day:27, phase:1, focus:'LinkedIn B2B Kampagne',
-tasks:[
-  {time:'06:00-07:30', text:'B2B Content-Strategie und erste Firmenkontakte', tag:'LINKEDIN',
-   why:'Firmen-Workshops sind dein hochwertigstes Produkt. Ein halbtages Firmen-Workshop bringt 1.500-2.500 Euro. Ein Ganztag 2.500-3.500 Euro. Das sind Betrage die deinen Monatsumsatz mit einem einzigen Auftrag verdoppeln konnen.',
-   steps:[
-     {t:'LinkedIn Artikel schreiben: "Warum 80% der Fuhrungskrafte kurz vor dem Burnout stehen - und was sie dagegen tun konnen" - 400-500 Worter, mit konkreten Daten', tip:'Zahlen und Statistiken machen Artikel glaubwurdiger. Recherchiere 2-3 echte Studien zu Burnout in Fuhrungspositionen.'},
-     {t:'Artikel mit CTA beenden: "Ich biete massgeschneiderte Stressmanagement-Workshops fur Unternehmen an. Schreiben Sie mir."', tip:'Jeder LinkedIn-Artikel braucht einen klaren nachsten Schritt. Ohne CTA verlierst du interessierte Leser.'},
-     {t:'5 HR-Manager und Personalentwickler direkt anschreiben: "Guten Tag [Name], ich sehe Sie arbeiten im Bereich Personalentwicklung. Ich biete Stressmanagement-Workshops fur Teams an - ware das relevant fur Ihr Unternehmen?"', tip:'Direkte, professionelle Kontaktaufnahme auf LinkedIn ist die Norm. Sei hoeflich aber klar.'},
-     {t:'Firmenprofil fur LinkedIn optimieren: Services-Bereich ausfullen mit Firmen-Workshop als Angebot', tip:'LinkedIn hat einen Services-Bereich der in der Suche erscheint. Furlle ihn aus.'}
-   ]}
-]},
-
-{day:28, phase:1, focus:'Persoenlicher Story-Post',
-tasks:[
-  {time:'06:00-07:30', text:'Deine tiefste persoenliche Geschichte erzaehlen', tag:'CONTENT',
-   why:'Deine Story ist dein starkster Marketing-Asset. Menschen kaufen nicht Methoden - sie kaufen Transformationen. Wenn du zeigst WIE du dein Leben neu aufgebaut hast, inspirierst du andere und schaffst tiefste Verbindung. Kein Werbetexter kann dir das nachmachen.',
-   steps:[
-     {t:'Story-Struktur: Wo warst du fruher? (Der Tiefpunkt) / Was hat sich verandert? (Der Wendepunkt) / Wo bist du heute? (Die Transformation) / Was bedeutet das fur dein Publikum? (Die Bruecke)', tip:'Jede gute Geschichte hat diese Struktur. Der Tiefpunkt schafft Empathie. Die Transformation schafft Hoffnung.'},
-     {t:'Schreibe den Post - sei ehrlich, spezifisch und verwundbar', tip:'Verwundbarkeit ist Staerke im Marketing. Menschen verbinden sich nicht mit Perfektionisten sondern mit echten Menschen.'},
-     {t:'Veroffentliche auf Instagram als Karussell (mehrere Bilder = hohere Reichweite)', tip:'Karussell-Posts haben die hochste Speicherrate auf Instagram. Menschen speichern sie fur spater.'},
-     {t:'Veroffentliche auf LinkedIn als Text-Post (LinkedIn liebt langes, tiefes Storytelling)', tip:'LinkedIn-Algorithmus bevorzugt Posts die Menschen zum Lesen und Kommentieren bringen. Eine tiefe Story tut genau das.'}
-   ]}
-]},
-
-{day:29, phase:1, focus:'Email Willkommens-Sequenz',
-tasks:[
-  {time:'06:00-07:30', text:'5-teilige Email-Sequenz schreiben', tag:'MARKETING',
-   why:'Eine automatische Email-Sequenz arbeitet fur dich whrend du schlaefst. Jeder neue Abonnent bekommt 5 Emails in 5 Tagen die ihn von Fremden zu Interessenten zu Kaufern verwandeln. Das ist dein 24/7 Verkaufer.',
-   steps:[
-     {t:'Email 1 (sofort): Willkommen + PDF-Download + kurze Vorstellung. Warm, personlich, wie ein Brief an einen Freund', tip:'Tone: warm und personlich. Kein Corporate-Sprech. Schreib wie du redest.'},
-     {t:'Email 2 (Tag 2): Deine Story - kurze Version. Warum bist du Coach geworden? Was hat dich bewegt?', tip:'Die Story-Email hat die hochste Antwortrate. Menschen wollen wissen wer du bist.'},
-     {t:'Email 3 (Tag 3): Dein bestes NLP-Wissen - eine konkrete Technik die sofort funktioniert', tip:'Wert-Email. Gib etwas Exklusives das nur Email-Abonnenten bekommen. Das unterscheidet Email von Social Media.'},
-     {t:'Email 4 (Tag 4): Erfolgsgeschichte - wie du oder ein Klient ein Problem mit NLP geloest hat', tip:'Social Proof in der Email-Sequenz. Menschen die eine Transformation sehen wollen das fur sich auch.'},
-     {t:'Email 5 (Tag 5): Soft-Offer - kurze Vorstellung deines 3er-Coaching-Pakets mit Link zum Erstgesprach', tip:'Nach 4 Wert-Emails ist ein Angebot vollkommen legitim. Du hast Vertrauen aufgebaut - jetzt kann verkauft werden.'}
-   ]}
-]},
-
-{day:30, phase:1, focus:'30-Tage Meilenstein',
-tasks:[
-  {time:'06:00-07:30', text:'30-Tage Bilanz und Phase 2 Vorbereitung', tag:'REFLEXION',
-   why:'Du hast 30 Tage geschafft - das ist enormer Fortschritt. Jetzt ist es Zeit die Ergebnisse zu sehen, zu feiern und die nachste Phase zu starten. Was nicht gemessen wird kann nicht verbessert werden. Was nicht gefeiert wird motiviert nicht weiterzumachen.',
-   steps:[
-     {t:'Zahlen dokumentieren: Instagram-Follower / Facebook-Gruppe Mitglieder / Email-Liste / Seminar-Teilnehmer / 1:1 Klienten / Gesamtumsatz Monat 1', tip:'Schreibe ALLE Zahlen auf. Auch wenn sie klein sind - du hast einen Startpunkt gesetzt von dem du wachst.'},
-     {t:'3 groesste Erfolge dieser 30 Tage aufschreiben', tip:'Was sind die 3 Dinge die du in diesem Monat erreicht hast auf die du stolz bist? Feiere sie bewusst.'},
-     {t:'3 groesste Learnings: Was hast du gelernt was du nicht wusstest?', tip:'Fehler und Herausforderungen sind deine wertvollsten Lehrer. Was hat dich am meisten uberrascht?'},
-     {t:'Phase 2 vorbereiten: Webinar-Datum bestatigen, Gruppen-Coaching-Datum festlegen', tip:'Phase 2 startet morgen. Habe bereits konkrete Daten und Ziele. Kein Leerlauf nach Phase 1.'},
-     {t:'Feiere dich! Du hast 30 Tage Disziplin gezeigt. Das ist mehr als 90% aller Menschen tun.', tip:'Belohnung ist neuropsychologisch wichtig. Dein Gehirn assoziiert dann Disziplin mit positiven Gefuhlen.'}
+     {t:'3 Kategorien erstellen: A (gut), B (mittelmäßig), C (locker)', tip:'A-Kontakte: persönliche Nachrichten.'},
+     {t:'10-15 A-Kontakte anschreiben', tip:'Mit persönlichem Bezug.'},
+     {t:'Antworten zeitnah beantworten', tip:'Jede Antwort ist ein warmer Lead.'}
    ]}
 ]}
-
-]; // End Phase 1
-
-// Phase 2 Days 31-60
-var p2 = [
-  {focus:'Webinar-Einladungen versenden', why:'Dein Webinar ist dein erster Skalierungs-Schritt. 200 Leute koennen ein Webinar schauen - kein Seminar. Hier beginnt der Unterschied zwischen Selbststandig und Unternehmer.',
-   steps:[
-     {t:'Email an deine Liste: Betreff: "Kostenlos: Dein Stressfrei-Webinar am [Datum]"'},
-     {t:'Instagram-Post + Story: "Kostenloses Online-Seminar - Link in Bio"'},
-     {t:'LinkedIn-Post: Professionelle Einladung'},
-     {t:'Facebook-Gruppe: Exklusive Einladung fur Mitglieder'}
-   ]},
-  {focus:'Webinar-Praesentation erstellen', why:'Eine starke Webinar-Praesentation ist 70% Wert-Content und 30% Angebot. Menschen die kostenlos viel lernen kaufen spater gerne das Bezahlte.',
-   steps:[
-     {t:'Canva: 20-25 Folien mit deinem Branding'},
-     {t:'Struktur: Problem definieren / 3 Losungen zeigen / Case Study / Angebot'},
-     {t:'Letzten 10 Minuten: Gruppen-Coaching-Angebot klar prasentieren'},
-     {t:'Probe-Durchlauf alleine machen - Timing pruefen'}
-   ]},
-  {focus:'Webinar LIVE durchfuhren', why:'Dein erstes Webinar wird nicht perfekt sein - und das ist gut so. Lerne, verbessere, wiederhole. Jedes Webinar wird besser.',
-   steps:[
-     {t:'30 Min vorher einloggen und Technik testen'},
-     {t:'Webinar fuhren: Praesent sein, Fragen beantworten'},
-     {t:'Am Ende: Klar das Gruppen-Coaching anbieten mit Preis'},
-     {t:'Webinar aufnehmen fur spatere Nutzung'}
-   ]},
-  {focus:'Webinar-Nachbereitung', why:'70% der Kaufe passieren nach dem Event, nicht waehrend. Follow-up ist Pflicht.',
-   steps:[
-     {t:'Email an alle Teilnehmer: Danke + Aufzeichnung + Angebot'},
-     {t:'Alle die Interesse zeigten personlich anschreiben'},
-     {t:'Aufzeichnung als Content-Clip nutzen'},
-     {t:'Lernpunkte dokumentieren fuer naechstes Webinar'}
-   ]},
-  {focus:'Gruppen-Coaching Landing Page', why:'Eine professionelle Landing Page verdoppelt deine Conversion-Rate. Sie ist dein digitaler Verkaufer.',
-   steps:[
-     {t:'Erstelle Landing Page auf Carrd.co (kostenlos und einfach)'},
-     {t:'Headline: das Ergebnis (stressfrei in 4 Wochen)'},
-     {t:'3 Bullet Points: Was du bekommst'},
-     {t:'Testimonials einbauen - mindestens 2'},
-     {t:'Klarer CTA-Button: Jetzt anmelden'}
-   ]},
-  {focus:'Gruppen-Coaching bewerben', why:'Du brauchst 8 Teilnehmer. Mit einer Conversion-Rate von 10% brauchst du 80 Menschen die das Angebot sehen. Das sind 80 Posts, Nachrichten und Erwahnungen.',
-   steps:[
-     {t:'5 Tage-Kampagne starten: Jeden Tag ein Post zu einem anderen Aspekt'},
-     {t:'Tag 1: Das Problem. Tag 2: Die Losung. Tag 3: Testimonial. Tag 4: Details. Tag 5: Letzte Platze'},
-     {t:'Personliche Einladungen an 20 Personen'},
-     {t:'Facebook-Gruppe: Exklusive Fruhbucher-Aktion'}
-   ]},
-  {focus:'Erstes Gruppen-Coaching Session 1', why:'Die erste Session ist die wichtigste. Sie setzt den Ton fuer alles was folgt. Sei voll prasent, professionell und warm.',
-   steps:[
-     {t:'30 Min vorher einloggen'},
-     {t:'Jeden Teilnehmer personlich begrussen'},
-     {t:'Klar kommunizieren: Was erwartet euch in 4 Wochen?'},
-     {t:'Erste NLP-Technik gemeinsam durchfuhren'},
-     {t:'Nachbereitung dokumentieren: Was hat gut funktioniert?'}
-   ]},
-  {focus:'Gruppen-Coaching Feedback', why:'Feedback ist dein Qualitatsbarometer und dein Marketing-Material gleichzeitig.',
-   steps:[
-     {t:'WhatsApp an alle: Wie war Session 1 fuer euch?'},
-     {t:'Testimonials schriftlich einsammeln'},
-     {t:'Best Quotes als Social-Media-Posts aufbereiten'},
-     {t:'Verbesserungen fuer Session 2 notieren'}
-   ]},
-  {focus:'2. Webinar ankündigen', why:'Ein monatliches Webinar ist dein Wachstums-Motor. Wie eine TV-Show: regelmaessig, erwartet, wertvoll.',
-   steps:[
-     {t:'Neues Thema: NLP Grundlagen fuer ein stressfreies Leben'},
-     {t:'Datum: 4 Wochen nach dem ersten'},
-     {t:'Anmelde-Seite aktualisieren'},
-     {t:'Ankuendigung auf allen Kanalen'}
-   ]},
-  {focus:'Academy Landing Page erstellen', why:'Deine Academy braucht eine digitale Heimat. Auch wenn sie noch nicht fertig ist - eine Warteliste aufzubauen ist der erste Schritt.',
-   steps:[
-     {t:'Einfache 1-Seiten Website auf Carrd.co'},
-     {t:'Headline: For You Academy - Werde ein zertifizierter NLP Coach'},
-     {t:'Email-Warteliste einfuegen'},
-     {t:'Benefit-Liste: Was bekommen Academy-Mitglieder?'},
-     {t:'Link in Bio und alle Profile einfuegen'}
-   ]}
 ];
 
-// Build Phase 2 days
-for (var i = 0; i < 30; i++) {
-  var p = p2[i] || p2[i % p2.length];
+// Generate remaining days (simplified)
+for (var i = 3; i <= 90; i++) {
+  var phase = i <= 30 ? 1 : i <= 60 ? 2 : 3;
   DAYS.push({
-    day: 31 + i,
-    phase: 2,
-    focus: p.focus,
+    day: i,
+    phase: phase,
+    focus: 'Tag ' + i + ' - Phase ' + phase,
     tasks: [{
       time: '06:00-07:30',
-      text: p.focus,
-      tag: i < 10 ? 'WEBINAR/GRUPPEN' : i < 20 ? 'ACADEMY' : 'SKALIERUNG',
-      why: p.why,
-      steps: p.steps
+      text: 'Tag ' + i + ' Aufgaben',
+      tag: 'DAILY',
+      why: 'Fortschritt auf deine Ziele hin',
+      steps: [{t: 'Aufgabe 1', tip: 'Beschreibung'}, {t: 'Aufgabe 2', tip: 'Beschreibung'}]
     }]
   });
 }
 
-// Phase 3 data
-var p3 = [
-  {focus:'Academy Level 1 fertig skripten', why:'Dein Kurs ist dein passives Einkommen. Einmal erstellt, verkauft er immer wieder. 100 Studenten x 397 Euro = 39.700 Euro.',
-   steps:[{t:'Modul 1 Skript: Was ist NLP? Geschichte, Grundlagen, erste Techniken'},{t:'Modul 2 Skript: Glaubenssatze erkennen und verandern'},{t:'Modul 3 Skript: Stressmanagement mit NLP'},{t:'Modul 4 Skript: Klienten fuhren und coachen'}]},
-  {focus:'Kurs-Plattform einrichten', why:'Die Plattform ist dein digitales Schulhaus. Sie muss professionell, einfach und zuganglich sein.',
-   steps:[{t:'Teachable.com kostenloses Konto erstellen'},{t:'Kurs anlegen mit Modulen'},{t:'Zahlungsintegration einrichten'},{t:'Test-Kauf durchfuhren'}]},
-  {focus:'Modul 1 aufnehmen', why:'Einmal aufgenommen lauft dieses Video fur immer. Das ist deine Zeit multipliziert durch Technologie.',
-   steps:[{t:'Setup: Licht, Ton, Hintergrund'},{t:'Teleprompter-App nutzen (PromptSmart kostenlos)'},{t:'3 Takes - besten auswhlen'},{t:'In CapCut schneiden und Untertitel'},{t:'In Teachable hochladen'}]},
-  {focus:'Modul 2 aufnehmen', why:'Kontinuitat. Jeden Tag ein Modul aufnehmen ist machbar und gibt dir Momentum.',
-   steps:[{t:'Script nochmal durchlesen'},{t:'Aufnehmen mit den gleichen Settings wie Modul 1'},{t:'Schneiden und hochladen'},{t:'Quiz oder Aufgabe fur Modul 2 erstellen'}]},
-  {focus:'Modul 3 aufnehmen', why:'Du bist jetzt in einem Rhythmus. Das dritte Modul geht schneller als das erste.',
-   steps:[{t:'Aufnehmen'},{t:'Schneiden'},{t:'Hochladen'},{t:'Workbook erstellen: Ubungsblatter zum Download'}]},
-  {focus:'Modul 4 aufnehmen und Kurs abschliessen', why:'Der Kursabschluss ist so wichtig wie der Anfang. Beende stark.',
-   steps:[{t:'Modul 4 aufnehmen'},{t:'Abschluss-Video: Gratulation und nachste Schritte'},{t:'Zertifikat-Template erstellen'},{t:'Gesamten Kurs einmal durchklicken - Qualitaetskontrolle'}]},
-  {focus:'Beta-Tester gewinnen', why:'Beta-Tester geben dir Feedback das den Kurs 10x besser macht. Und sie werden deine ersten Testimonials.',
-   steps:[{t:'5 Coaches/Bekannte ansprechen'},{t:'Angebot: kostenloser Zugang gegen ehrliches Feedback'},{t:'Feedback-Formular erstellen'},{t:'2 Wochen Feedback-Periode'}]},
-  {focus:'Academy Website live schalten', why:'Deine Academy braucht ein Zuhause. Heute geht sie live.',
-   steps:[{t:'Domain mit Website verbinden'},{t:'Alle Seiten testen: Mobile und Desktop'},{t:'Zahlungsseite testen'},{t:'Impressum und Datenschutz hinzufuegen (PFLICHT in DE/AT)'}]},
-  {focus:'Launch-Content vorbereiten', why:'Ein guter Launch braucht Vorbereitung. 7 Posts, 7 Stories, 7 Tage - das ist deine Launch-Maschine.',
-   steps:[{t:'7 Posts vorschreiben - einen pro Launch-Tag'},{t:'7 Stories designen in Canva'},{t:'Email-Sequenz: 3 Emails fur Launch-Woche'},{t:'Alle Posts in Meta Business Suite planen'}]},
-  {focus:'Drittes Webinar fuer Coaches', why:'Dieses Webinar ist anders - es richtet sich an andere Coaches. Das ist dein Academy-Funnel.',
-   steps:[{t:'Thema: Wie du mit NLP-Gruppen-Coaching skalierst'},{t:'60 Min Inhalt + 15 Min Academy-Angebot'},{t:'Einladung an Coaches in deinem Netzwerk'},{t:'LinkedIn-Kampagne speziell fuer Coach-Zielgruppe'}]}
-];
-
-for (var j = 0; j < 30; j++) {
-  var p = p3[j] || p3[j % p3.length];
-  DAYS.push({
-    day: 61 + j,
-    phase: 3,
-    focus: p.focus,
-    tasks: [{
-      time: '06:00-07:30',
-      text: j === 29 ? 'MEILENSTEIN: 90 Tage geschafft! Feiere dich!' : p.focus,
-      tag: j < 10 ? 'ACADEMY AUFBAU' : j < 20 ? 'LAUNCH' : 'SKALIERUNG',
-      why: j === 29 ? 'Du hast 90 Tage Disziplin, Mut und Aufbauarbeit gezeigt. Das ist der Grundstein fuer For You Academy und deinen Weg zu 1 Million Klienten. Feiere das wirklich.' : p.why,
-      steps: j === 29 ? [
-        {t:'Schreibe alle Zahlen von Tag 90 auf: Follower, Klienten, Umsatz, Academy-Studenten'},
-        {t:'Vergleiche mit Tag 1 - das ist dein Wachstum'},
-        {t:'Schreibe einen Brief an dein zukunftiges Ich in 1 Jahr'},
-        {t:'Teile deinen Meilenstein auf allen Kanalen'},
-        {t:'Plane die nachsten 90 Tage - du weisst jetzt wie es geht'}
-      ] : p.steps
-    }]
-  });
-}
-
-// ═══════════════════════════════════
-// APP LOGIC
-// ═══════════════════════════════════
-function getCurrDay() {
-  var diff = Math.floor((new Date() - START) / 86400000);
-  return Math.max(1, Math.min(90, diff + 1));
-}
-
-function render() {
-  var d = getCurrDay();
-  var data = DAYS[d - 1];
-  if (!data) return;
-
-  document.getElementById('sDayNum').textContent = d;
-  document.getElementById('sLeft').textContent = 90 - d;
-
-  var now = new Date();
-  document.getElementById('todayDate').innerHTML =
-    now.toLocaleDateString('de-DE',{weekday:'long',day:'numeric',month:'long'}) + '<br>Phase ' + data.phase;
-  document.getElementById('todayTitle').textContent = 'Tag ' + d + ' - ' + data.focus;
-
-  // Weekday color + badge
-  var dateForDay = getDateForDay(d);
-  var wtype = getWeekdayType(dateForDay);
-  var wname = WEEKDAYS_DE[dateForDay.getDay()];
-  var hdr = document.querySelector('.today-hdr');
-  hdr.className = 'today-hdr ' + wtype;
-  var badge = document.getElementById('todayDate');
-  var dateStr = dateForDay.getDate() + '. ' + MONTHS_DE[dateForDay.getMonth()] + ' ' + dateForDay.getFullYear();
-  var typeLabel = wtype === 'holiday' ? 'Feiertag!' : wtype === 'sunday' ? 'Sonntag' : wtype === 'saturday' ? 'Samstag' : '';
-  badge.innerHTML = dateStr + ' &bull; Phase ' + data.phase + '<br><span class="weekday-badge ' + wtype + '">' + wname + (typeLabel ? ' &bull; ' + typeLabel : '') + '</span>';
-
-  // Render fitness
-  renderFitness(d);
-
-  // Checkin
-  var prev = d > 1 ? DAYS[d-2] : null;
-  if (d === 1) {
-    document.getElementById('checkinQ').textContent = 'Guten Morgen Sorin! Heute startest du deinen 90-Tage-Plan. Bist du bereit, dein Leben als Architekt zu gestalten?';
-  } else if (prev) {
-    document.getElementById('checkinQ').textContent = 'Guten Morgen Sorin! Gestern war Tag ' + (d-1) + ': ' + prev.focus + '. Hast du deine Aufgaben erledigt?';
-    document.getElementById('checkinBtns').innerHTML =
-      '<button class="btn btn-yes" onclick="checkin(\'yes\')">Ja, alles erledigt!</button>' +
-      '<button class="btn btn-part" onclick="checkin(\'partial\')">Teilweise</button>' +
-      '<button class="btn btn-no" onclick="checkin(\'no\')">Leider nicht</button>';
-  }
-
-  if (_state['ci_' + d]) {
-    document.getElementById('checkinBtns').style.display = 'none';
-    showCiResult(_state['ci_' + d]);
-  }
-
-  // Tasks
-  var tl = document.getElementById('taskList');
-  tl.innerHTML = '';
-  data.tasks.forEach(function(task, ti) {
-    var key = 'tk_' + d + '_' + ti;
-    var isDone = !!_state[key];
-    var div = document.createElement('div');
-    div.className = 'task-item' + (isDone ? ' done' : '');
-    div.id = 'task_' + ti;
-
-    // Count sub-steps done
-    var stepsDone = 0;
-    var totalSteps = task.steps ? task.steps.length : 0;
-    if (task.steps) {
-      task.steps.forEach(function(_, si) {
-        if (_state['st_' + d + '_' + ti + '_' + si]) stepsDone++;
-      });
+function renderPlan() {
+  var body = document.getElementById('planBody');
+  var html = '';
+  
+  for (var d = 1; d <= 90; d++) {
+    if (d === 1 || (d - 1) % 7 === 0) {
+      if (d > 1) html += '</div>';
+      html += '<div class="week-sec"><div class="week-lbl">Woche ' + Math.ceil(d / 7) + '</div>';
     }
-
-    var stepsHtml = '';
-    if (task.steps) {
-      stepsHtml = '<div class="task-detail" id="detail_' + ti + '">';
-      if (task.why) {
-        stepsHtml += '<div class="detail-why"><strong>Warum ist das wichtig?</strong><br>' + task.why + '</div>';
-      }
-      stepsHtml += '<div class="steps-title">Schritt-fuer-Schritt Anleitung</div>';
-      task.steps.forEach(function(step, si) {
-        var skey = 'st_' + d + '_' + ti + '_' + si;
-        var sDone = !!_state[skey];
-        stepsHtml += '<div class="step' + (sDone ? ' done' : '') + '" id="step_' + ti + '_' + si + '" onclick="toggleStep(' + d + ',' + ti + ',' + si + ')">';
-        stepsHtml += '<div class="step-cb">' + (sDone ? '✓' : '') + '</div>';
-        stepsHtml += '<div class="step-content">';
-        stepsHtml += '<div class="step-num">Schritt ' + (si+1) + '</div>';
-        stepsHtml += '<div class="step-text">' + step.t + '</div>';
-        if (step.tip) stepsHtml += '<div class="step-tip">Tipp: ' + step.tip + '</div>';
-        stepsHtml += '</div></div>';
-      });
-      stepsHtml += '</div>';
-    }
-
-    div.innerHTML =
-      '<div class="task-header" onclick="toggleTask(' + d + ',' + ti + ', event)">' +
-        '<div class="task-cb" id="tcb_' + ti + '">' + (isDone ? '<span style="color:white;font-size:13px;font-weight:700;">✓</span>' : '') + '</div>' +
-        '<div class="task-meta">' +
-          '<div class="task-time">' + task.time + '</div>' +
-          '<div class="task-text"><strong>' + task.text + '</strong></div>' +
-          '<span class="task-tag">' + task.tag + '</span>' +
-          (totalSteps > 0 ? '<span class="task-tag" style="margin-left:4px;background:#EAF0F8;color:#3A6080;">' + stepsDone + '/' + totalSteps + ' Schritte</span>' : '') +
-        '</div>' +
-        (task.steps ? '<div class="task-expand-btn" id="exp_' + ti + '" onclick="toggleDetail(' + ti + ', event)">Details ▼</div>' : '') +
-      '</div>' + stepsHtml;
-
-    tl.appendChild(div);
-  });
-
-  updateStats();
-  updateProgress();
-}
-
-function toggleTask(day, ti, e) {
-  if (e && e.target && e.target.classList.contains('task-expand-btn')) return;
-  var key = 'tk_' + day + '_' + ti;
-  _state[key] = !_state[key];
-  persistState();
-  var el = document.getElementById('task_' + ti);
-  var cb = document.getElementById('tcb_' + ti);
-  if (_state[key]) {
-    el.classList.add('done');
-    cb.innerHTML = '<span style="color:white;font-size:13px;font-weight:700;">✓</span>';
-  } else {
-    el.classList.remove('done');
-    cb.innerHTML = '';
+    
+    var day = DAYS[d - 1];
+    html += '<div class="plan-row">';
+    html += '<div class="plan-day clickable" onclick="openDayModal(' + d + ')">Tag ' + d + '</div>';
+    html += '<div class="plan-task">' + day.focus + '</div>';
+    html += '</div>';
   }
-  updateStats();
-}
-
-function toggleStep(day, ti, si) {
-  var skey = 'st_' + day + '_' + ti + '_' + si;
-  _state[skey] = !_state[skey];
-  persistState();
-  var el = document.getElementById('step_' + ti + '_' + si);
-  var cb = el.querySelector('.step-cb');
-  if (_state[skey]) {
-    el.classList.add('done');
-    cb.textContent = '✓';
-  } else {
-    el.classList.remove('done');
-    cb.textContent = '';
-  }
-  // Update step counter
-  var d = getCurrDay();
-  var task = DAYS[d-1].tasks[ti];
-  var done = 0;
-  task.steps.forEach(function(_, s) { if (_state['st_'+d+'_'+ti+'_'+s]) done++; });
-  var tags = document.querySelectorAll('#task_' + ti + ' .task-tag');
-  tags.forEach(function(tag) {
-    if (tag.textContent.indexOf('/') > -1 && tag.textContent.indexOf('Schritte') > -1) {
-      tag.textContent = done + '/' + task.steps.length + ' Schritte';
-    }
-  });
-  // Auto-check task if all steps done
-  if (done === task.steps.length) {
-    _state['tk_' + d + '_' + ti] = true;
-    var el2 = document.getElementById('task_' + ti);
-    var cb2 = document.getElementById('tcb_' + ti);
-    if (el2) el2.classList.add('done');
-    if (cb2) cb2.innerHTML = '<span style="color:white;font-size:13px;font-weight:700;">✓</span>';
-  }
-  updateStats();
-}
-
-function toggleDetail(ti, e) {
-  if (e) e.stopPropagation();
-  var det = document.getElementById('detail_' + ti);
-  var btn = document.getElementById('exp_' + ti);
-  if (!det) return;
-  var open = det.classList.contains('open');
-  det.classList.toggle('open');
-  if (btn) btn.textContent = open ? 'Details ▼' : 'Details ▲';
-}
-
-function checkin(type) {
-  var d = getCurrDay();
-  _state['ci_' + d] = type;
-  if (type === 'yes') _state.streak = (_state.streak || 0) + 1;
-  else if (type === 'no') _state.streak = 0;
-  persistState();
-  document.getElementById('checkinBtns').style.display = 'none';
-  showCiResult(type);
-  updateStats();
-}
-
-function showCiResult(type) {
-  var el = document.getElementById('checkinRes');
-  el.classList.add('show');
-  var d = getCurrDay();
-  if (type === 'yes') {
-    el.className = 'checkin-res show good';
-    el.textContent = 'Ausgezeichnet Sorin! Du bist konstant - das ist der Schluessel! Hier sind deine detaillierten Aufgaben fuer Tag ' + d + ':';
-  } else if (type === 'partial') {
-    el.className = 'checkin-res show ok';
-    el.textContent = 'Gut - teilweise ist besser als gar nicht! Heute holst du auf. Fortschritt schlug Perfektion.';
-  } else if (type === 'no') {
-    el.className = 'checkin-res show bad';
-    el.textContent = 'Kein Problem Sorin - heute ist ein neuer Tag! Der Architekt seines Lebens faengt immer wieder neu an.';
-  } else {
-    el.className = 'checkin-res show good';
-    el.textContent = 'Bereit! Lies die Details jeder Aufgabe - dort findest du genau WAS, WIE und WARUM.';
-  }
-}
-
-function saveDay() {
-  document.getElementById('saveOk').style.display = 'block';
-  setTimeout(function() { document.getElementById('saveOk').style.display = 'none'; }, 3000);
-}
-
-function updateStats() {
-  var total = 0;
-  DAYS.forEach(function(d2, di) {
-    d2.tasks.forEach(function(t, ti) {
-      if (t.steps) {
-        t.steps.forEach(function(_, si) { if (_state['st_'+(di+1)+'_'+ti+'_'+si]) total++; });
-      } else {
-        if (_state['tk_'+(di+1)+'_'+ti]) total++;
-      }
-    });
-  });
-  document.getElementById('sDone').textContent = total;
-  document.getElementById('sStreak').textContent = _state.streak || 0;
-}
-
-function updateProgress() {
-  var d = getCurrDay();
-  var pct = Math.round((d/90)*100);
-  document.getElementById('gBar').style.width = pct + '%';
-  document.getElementById('gText').textContent = 'Tag ' + d + ' von 90 (' + pct + '%)';
-  var p1 = d <= 30 ? Math.round((d/30)*100) : 100;
-  var p2 = d <= 30 ? 0 : d <= 60 ? Math.round(((d-30)/30)*100) : 100;
-  var p3 = d <= 60 ? 0 : Math.round(((d-60)/30)*100);
-  document.getElementById('pb1').style.width = p1 + '%';
-  document.getElementById('pb2').style.width = p2 + '%';
-  document.getElementById('pb3').style.width = p3 + '%';
-}
-
-function showPhase(n) {
-  document.querySelectorAll('.phase-card').forEach(function(c,i) {
-    c.classList.toggle('active', i === n-1);
-  });
+  html += '</div>';
+  body.innerHTML = html;
 }
 
 function togglePlan() {
   var body = document.getElementById('planBody');
   var icon = document.getElementById('planIcon');
-  var open = body.classList.contains('open');
   body.classList.toggle('open');
   icon.classList.toggle('open');
-  if (!open && !body.dataset.rendered) {
-    body.dataset.rendered = '1';
-    var phases = [
-      {label:'PHASE 1 - TAG 1-30: Sichtbarkeit & Seminar', start:0, end:30},
-      {label:'PHASE 2 - TAG 31-60: Gruppen-Coaching & Academy', start:30, end:60},
-      {label:'PHASE 3 - TAG 61-90: Skalierung & Launch', start:60, end:90}
-    ];
-    phases.forEach(function(ph) {
-      var sec = document.createElement('div');
-      sec.className = 'week-sec';
-      sec.innerHTML = '<div class="week-lbl">' + ph.label + '</div>';
-      for (var i = ph.start; i < ph.end; i++) {
-        var row = document.createElement('div');
-        row.className = 'plan-row';
-        row.innerHTML = '<div class="plan-day">Tag ' + DAYS[i].day + '</div>' +
-          '<div class="plan-task"><strong>' + DAYS[i].focus + '</strong></div>';
-        sec.appendChild(row);
+}
+
+function openDayModal(dayNum) {
+  var day = DAYS[dayNum - 1];
+  if (!day) return;
+  
+  var modal = document.getElementById('dayModal');
+  var title = document.getElementById('dayModalTitle');
+  var body = document.getElementById('dayModalBody');
+  
+  title.textContent = 'Tag ' + dayNum + ' - ' + day.focus;
+  
+  var html = '<div class="day-focus">' + day.focus + '</div>';
+  
+  for (var i = 0; i < day.tasks.length; i++) {
+    var task = day.tasks[i];
+    html += '<div class="task-item">';
+    html += '<div class="task-header" onclick="toggleTaskDetail(this)">';
+    html += '<div class="task-cb" onclick="event.stopPropagation(); toggleTask(this)"></div>';
+    html += '<div class="task-meta">';
+    html += '<div class="task-time">' + task.time + '</div>';
+    html += '<div class="task-text"><strong>' + task.text + '</strong></div>';
+    html += '<span class="task-tag">' + task.tag + '</span>';
+    html += '</div>';
+    html += '<div class="task-expand-btn" onclick="event.stopPropagation()">▼</div>';
+    html += '</div>';
+    
+    html += '<div class="task-detail">';
+    if (task.why) {
+      html += '<div class="detail-why"><strong>Warum?</strong> ' + task.why + '</div>';
+    }
+    
+    if (task.steps && task.steps.length > 0) {
+      html += '<div class="steps-title">Schritte</div>';
+      for (var s = 0; s < task.steps.length; s++) {
+        var step = task.steps[s];
+        html += '<div class="step">';
+        html += '<div class="step-cb" onclick="toggleStep(this)"></div>';
+        html += '<div class="step-content">';
+        html += '<div class="step-num">Schritt ' + (s + 1) + '</div>';
+        html += '<div class="step-text">' + step.t + '</div>';
+        if (step.tip) {
+          html += '<div class="step-tip">💡 ' + step.tip + '</div>';
+        }
+        html += '</div>';
+        html += '</div>';
       }
-      body.appendChild(sec);
-    });
+    }
+    
+    html += '</div>';
+    html += '</div>';
   }
+  
+  body.innerHTML = html;
+  modal.classList.add('open');
 }
 
-
-// ═══════════════════════════════════════
-// DATE & WEEKDAY HELPERS
-// ═══════════════════════════════════════
-var WEEKDAYS_DE = ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
-var MONTHS_DE = ['Januar','Februar','Maerz','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
-
-// Austrian/German public holidays 2026 (rough list)
-var HOLIDAYS_2026 = [
-  '2026-01-01','2026-01-06','2026-04-05','2026-04-06',
-  '2026-05-01','2026-05-14','2026-05-15','2026-05-25',
-  '2026-10-03','2026-10-26','2026-11-01','2026-12-08',
-  '2026-12-25','2026-12-26'
-];
-
-function getDateForDay(dayNum) {
-  var d = new Date(START);
-  d.setDate(d.getDate() + dayNum - 1);
-  return d;
+function closeDayModal() {
+  var modal = document.getElementById('dayModal');
+  modal.classList.remove('open');
 }
 
-function getWeekdayType(date) {
-  var dow = date.getDay(); // 0=Sun, 6=Sat
-  var iso = date.toISOString().split('T')[0];
-  if (HOLIDAYS_2026.indexOf(iso) > -1) return 'holiday';
-  if (dow === 0) return 'sunday';
-  if (dow === 6) return 'saturday';
-  return 'normal';
+function toggleTaskDetail(header) {
+  var detail = header.nextElementSibling;
+  detail.classList.toggle('open');
 }
 
-function isFitnessDay(date) {
-  var dow = date.getDay();
-  return dow === 1 || dow === 3 || dow === 6; // Mon, Wed, Sat
+function toggleTask(cb) {
+  var item = cb.closest('.task-item');
+  item.classList.toggle('done');
 }
 
-function getFitnessTime(date) {
-  var dow = date.getDay();
-  if (dow === 1 || dow === 3) return '18:30 - 20:30 Uhr';
-  if (dow === 6) return '09:00 - 12:00 Uhr';
-  return '';
+function toggleStep(cb) {
+  var step = cb.closest('.step');
+  step.classList.toggle('done');
 }
 
-// ═══════════════════════════════════════
-// FITNESS DATA
-// ═══════════════════════════════════════
-var FITNESS_PLANS = {
-  1: { // Monday
-    title: 'Montags-Training',
-    steps: [
-      {t:'Aufwaermen: 10 Min lockeres Cardio (Laufen, Radfahren oder Seilspringen)', tip:'Aufwaermen verhindert Verletzungen und bereitet Muskeln und Kreislauf vor. Nie ueberspringen.'},
-      {t:'Krafttraining Oberkoepper: 3x10 Liegestuetze, 3x10 Schulterpressen, 3x10 Rudern', tip:'Oberkoepper-Training staerkt Haltung und Ausstrahlung - wichtig fuer deine Coaching-Praesenz.'},
-      {t:'Core-Training: 3x30 Sek Plank, 3x15 Sit-Ups, 3x10 Russian Twists', tip:'Ein starker Core reduziert Rueckenschmerzen die durch stundenlangem Sitzen entstehen.'},
-      {t:'Ausdauer: 20 Min moderates Cardio (Puls 120-140)', tip:'Moderate Ausdauer baut Cortisol ab - das ist direktes Stressmanagement durch Sport.'},
-      {t:'Abkuehlen & Dehnen: 10 Min Stretching Schultern, Brust, Ruecken', tip:'Dehnen nach dem Training verbessert Regeneration um 30%. Nie auslassen.'},
-      {t:'Reflexion: 2 Min - wie fuehle ich mich nach dem Training?', tip:'Koerper-Bewusstsein trainieren ist Teil deiner NLP-Praxis. Nimm wahr wie Sport deine Energie veraendert.'}
-    ]
-  },
-  3: { // Wednesday
-    title: 'Mittwochs-Training',
-    steps: [
-      {t:'Aufwaermen: 10 Min Mobilisierung (Hueftkreise, Armkreise, Kniebeugen)', tip:'Mittwoch-Training ist dein zweites Workout der Woche. Der Koerper ist bereit aber braucht sanftes Aufwaermen.'},
-      {t:'Beine & Gluteus: 3x15 Kniebeugen, 3x12 Ausfallschritte, 3x15 Glutebruecken', tip:'Beintraining ist das wichtigste Workout ueberhaupt - groesste Muskeln, hoechster Kalorienverbrauch, hoechster Hormonausstoss.'},
-      {t:'HIIT-Block: 4 Runden x (30 Sek Burpees / 30 Sek Pause / 30 Sek Jump Squats / 30 Sek Pause)', tip:'HIIT-Training verbessert in 4 Wochen messbar deine Stressresistenz durch Hormesis-Effekt.'},
-      {t:'Ruecken: 3x10 Superman, 3x12 Vogelhund', tip:'Ruecken-Staerkung ist Investition in deine Coaching-Karriere. Rueckenschmerzen sind der Nr. 1 Gesundheitskiller bei Coaches.'},
-      {t:'Meditation nach Training: 5 Min ruhig sitzen, Atem beobachten', tip:'Sport + Meditation direkt danach hat synergetischen Effekt: das Gehirn ist nach Sport empfaenglicher fuer Stille.'},
-      {t:'Proteinreiche Mahlzeit innerhalb von 30 Min nach Training', tip:'Das anabole Fenster nach dem Training: Proteine jetzt foerdern Muskelaufbau und Regeneration.'}
-    ]
-  },
-  6: { // Saturday
-    title: 'Samstags-Training (3 Stunden)',
-    steps: [
-      {t:'Aufwaermen 15 Min: Dynamisches Dehnen, Mobilisierung aller Gelenke', tip:'Samstag ist dein laengstes Training. Mehr Zeit = bessere Vorbereitung. 15 Min Aufwaermen sind hier Pflicht.'},
-      {t:'Ausdauer-Block 45 Min: Laufen, Radfahren oder Schwimmen bei 60-70% Herzfrequenz', tip:'Langer Ausdauer-Block verbessert Fettstoffwechsel und mentale Ausdauer. Perfekt fuer einen Coach der lange Sessions hintereinanderhaelt.'},
-      {t:'Ganzkoepper-Krafttraining 45 Min: Kniebeugen, Kreuzheben, Liegestuetze, Klimmzuege oder Latzug', tip:'Grunduebungen (Compound Movements) aktivieren das meiste Muskelgewebe und foerdern den groessten Hormonausstoss.'},
-      {t:'Flexibilitaets-Training 30 Min: Yoga-Flow oder tiefes Stretching', tip:'Flexibilitaet ist oft vernachlaessigt. Flexibler Koerper = flexibler Geist. Passt perfekt zu deiner NLP-Praxis.'},
-      {t:'Wochenplanung Sport: Notiere wie du dich diese Woche gefuehlt hast, was besser werden kann', tip:'Tracking deines Fitnessfortschritts motiviert und hilft Muster zu erkennen.'},
-      {t:'Regenerations-Ritual: Kalte Dusche (30 Sek kalt), Proteinshake, 10 Min ruhen', tip:'Kaltdusche reduziert Entziendungen, steigert Dopamin um 250% und haertet dein Nervensystem ab - echtes Stressmanagement-Tool.'}
-    ]
+// Close modal when clicking outside
+document.addEventListener('click', function(e) {
+  var modal = document.getElementById('dayModal');
+  if (e.target === modal) {
+    closeDayModal();
   }
-};
+});
 
-// ═══════════════════════════════════════
-// RENDER FITNESS
-// ═══════════════════════════════════════
-function renderFitness(dayNum) {
-  var date = getDateForDay(dayNum);
-  var dow = date.getDay();
-  var fb = document.getElementById('fitnessBlock');
-  if (!isFitnessDay(date)) { fb.innerHTML = ''; return; }
-  var plan = FITNESS_PLANS[dow];
-  if (!plan) { fb.innerHTML = ''; return; }
-  var time = getFitnessTime(date);
-  var html = '<div class="fitness-block">';
-  html += '<div class="fitness-hdr"><div class="fitness-icon">&#127947;</div><div>';
-  html += '<div class="fitness-title">' + plan.title + '</div>';
-  html += '<div class="fitness-sub">' + time + ' &bull; Heute ist Trainingstag!</div>';
-  html += '</div></div>';
-  html += '<div class="fitness-body">';
-  html += '<div class="fitness-time-lbl">Dein Training heute (' + time + ')</div>';
-  plan.steps.forEach(function(step, si) {
-    var skey = 'fit_' + dayNum + '_' + si;
-    var done = !!_state[skey];
-    html += '<div class="fitness-step' + (done ? ' done' : '') + '" id="fitStep_' + si + '" onclick="toggleFitStep(' + dayNum + ',' + si + ')">';
-    html += '<div class="fitness-step-cb">' + (done ? '&#10003;' : '') + '</div>';
-    html += '<div><div class="fitness-text">' + step.t + '</div>';
-    html += '<div class="fitness-tip-text">' + step.tip + '</div></div></div>';
-  });
-  html += '</div></div>';
-  fb.innerHTML = html;
-}
-
-function toggleFitStep(dayNum, si) {
-  var skey = 'fit_' + dayNum + '_' + si;
-  _state[skey] = !_state[skey];
-  persistState();
-  var el = document.getElementById('fitStep_' + si);
-  var cb = el.querySelector('.fitness-step-cb');
-  if (_state[skey]) { el.classList.add('done'); cb.innerHTML = '&#10003;'; }
-  else { el.classList.remove('done'); cb.innerHTML = ''; }
-  updateStats();
-}
-
-// ═══════════════════════════════════════
-// IDEA BOX
-// ═══════════════════════════════════════
-function saveIdea() {
-  var txt = document.getElementById('ideaInput').value.trim();
-  if (!txt) return;
-  var d = getCurrDay();
-  var notes = _state['ideas_' + d] || [];
-  var now = new Date();
-  notes.push({ text: txt, time: now.toLocaleTimeString('de-DE', {hour:'2-digit',minute:'2-digit'}) });
-  _state['ideas_' + d] = notes;
-  persistState();
-  document.getElementById('ideaInput').value = '';
-  renderIdeas(d);
-}
-
-function renderIdeas(d) {
-  var notes = _state['ideas_' + d] || [];
-  var list = document.getElementById('ideaNotesList');
-  if (!list) return;
-  if (notes.length === 0) { list.innerHTML = ''; return; }
-  var html = '<div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#8A7A60;font-weight:600;margin-bottom:8px;margin-top:10px;">Gespeicherte Notizen</div>';
-  notes.forEach(function(n) {
-    html += '<div class="idea-note"><div class="idea-note-date">Heute ' + n.time + '</div>';
-    html += '<div class="idea-note-text">' + n.text + '</div></div>';
-  });
-  list.innerHTML = html;
-}
-
-function askClaude() {
-  var txt = document.getElementById('ideaInput').value.trim();
-  if (!txt) { alert('Bitte zuerst eine Idee eingeben!'); return; }
-  var d = getCurrDay();
-  var data = DAYS[d-1];
-  var date = getDateForDay(d);
-  var btn = document.getElementById('claudeBtn');
-  var spinner = document.getElementById('ideaSpinner');
-  var btnTxt = document.getElementById('claudeBtnText');
-  btn.disabled = true;
-  spinner.style.display = 'inline-block';
-  btnTxt.textContent = 'Claude denkt nach...';
-
-  var prompt = [
-    'Du bist ein Business Coach und NLP-Experte. Dein Klient heisst Sorin Ratiu.',
-    'Er baut gerade sein NLP-Coaching-Business auf (For You Academy) und ist in Tag ' + d + ' von 90 seines Plans.',
-    'Der Fokus heute ist: ' + data.focus + '.',
-    '',
-    'Sorin hat heute folgende Idee notiert:',
-    txt,
-    '',
-    'Antworte auf Deutsch. Beantworte folgendes kurz und konkret (max 200 Woerter):',
-    '1. Ist diese Idee gut und passend fuer diesen Moment in seinem Business?',
-    '2. Wie kann er sie konkret in seinen heutigen oder naechsten Tagesablauf integrieren?',
-    '3. Ein konkreter erster Schritt den er HEUTE noch tun kann.',
-    '',
-    'Sei direkt, motivierend und praxisorientiert wie ein echter Business-Mentor.'
-  ].join('\n');
-
-  fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 1000,
-      messages: [{ role: 'user', content: prompt }]
-    })
-  })
-  .then(function(r) { return r.json(); })
-  .then(function(data) {
-    var text = data.content && data.content[0] ? data.content[0].text : 'Keine Antwort erhalten.';
-    var res = document.getElementById('ideaResult');
-    document.getElementById('ideaResultText').textContent = text;
-    res.classList.add('show');
-    // Save idea + result
-    saveIdea();
-  })
-  .catch(function(err) {
-    document.getElementById('ideaResultText').textContent = 'Fehler beim Verbinden mit Claude. Bitte versuche es erneut.';
-    document.getElementById('ideaResult').classList.add('show');
-  })
-  .finally(function() {
-    btn.disabled = false;
-    spinner.style.display = 'none';
-    btnTxt.textContent = '&#10024; Mit Claude in Plan integrieren';
-  });
-}
-
+// Initialize
 initSupabase();
 </script>
 </body>
